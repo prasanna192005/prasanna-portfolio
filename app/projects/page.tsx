@@ -118,14 +118,29 @@ export default function ProjectsPage() {
                         </div>
                       </div>
 
-                      <div className="mt-auto">
-                        <div className="flex items-center space-x-3 mb-3">
-                          <div className="w-1.5 h-1.5 rotate-45 bg-[#FFF8E1]"></div>
-                          <span className="text-[10px] font-mono text-[#FDFBF7]/70 uppercase tracking-[0.2em]">{project.category}</span>
+                      <div className="mt-auto flex justify-between items-end">
+                        <div>
+                          <div className="flex items-center space-x-3 mb-3">
+                            <div className="w-1.5 h-1.5 rotate-45 bg-[#FFF8E1]"></div>
+                            <span className="text-[10px] font-mono text-[#FDFBF7]/70 uppercase tracking-[0.2em]">{project.category}</span>
+                          </div>
+                          <p className="text-sm text-[#FDFBF7]/80 leading-relaxed max-w-xs font-serif italic">
+                            {project.desc}
+                          </p>
                         </div>
-                        <p className="text-sm text-[#FDFBF7]/80 leading-relaxed max-w-xs font-serif italic">
-                          {project.desc}
-                        </p>
+
+                        {/* GitHub Link (Separate from Card Link) */}
+                        <a 
+                          href={project.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="p-3 bg-white/10 hover:bg-white/20 rounded-full transition-all duration-300 relative z-20 group/git pointer-events-auto"
+                        >
+                           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#FDFBF7] group-hover/git:scale-110 transition-transform">
+                              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                           </svg>
+                        </a>
                       </div>
                     </div>
                   </Link>

@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 
 const HeroSection = () => {
   const [scrollY, setScrollY] = useState(0);
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -74,7 +75,7 @@ const HeroSection = () => {
         </svg>
       </div>
 
-      <div className="max-w-5xl text-center z-10 px-4 mt-40 text-white">
+      <div className="max-w-5xl text-center z-10 px-4 mt-58 text-white">
         <h1 className="text-4xl md:text-4xl font-helvetica font-normal leading-[1.1] tracking-tight">
           I&apos;m Prasanna Pandharikar 
           <span className="inline-block mx-4 align-middle relative w-14 h-14 md:w-24 md:h-24 group/inline not-italic">
@@ -162,8 +163,39 @@ const HeroSection = () => {
           </svg>
         </div>
 
+        {/* npx prasanna Copy Snippet */}
+        <div className="mt-8 flex justify-center">
+          <motion.button 
+            onClick={() => {
+              navigator.clipboard.writeText("npx prasanna");
+              setCopied(true);
+              setTimeout(() => setCopied(false), 2000);
+            }}
+            whileHover={{ y: -2 }}
+            whileTap={{ scale: 0.98 }}
+            className="flex items-center space-x-3 px-4 py-2 bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-sm transition-all rounded-full group"
+          >
+            <div className="flex items-center space-x-2">
+              <span className="font-mono text-[10px] md:text-xs text-white/90">npx <span className="font-bold">prasanna</span></span>
+            </div>
+            <div className="h-3 w-px bg-white/20" />
+            <div className="flex items-center">
+               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-white/50 group-hover:text-white transition-colors">
+                 {copied ? (
+                   <path d="M20 6L9 17L4 12" strokeLinecap="round" strokeLinejoin="round" />
+                 ) : (
+                   <>
+                     <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                   </>
+                 )}
+               </svg>
+            </div>
+          </motion.button>
+        </div>
+
         {/* Animating Indian-Inspired Technical Mandala (COLORFUL) */}
-        <div className="mt-32 relative flex items-center justify-center h-32 md:h-48">
+        <div className="mt-0 relative flex items-center justify-center h-32 md:h-48">
           <svg 
             className="w-32 h-32 md:w-48 md:h-48 transition-opacity duration-700" 
             viewBox="0 0 100 100"
