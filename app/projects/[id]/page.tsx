@@ -17,43 +17,59 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
     notFound();
   }
 
+  // Consistent Jewel Tones
+  const bgColors: Record<string, string> = {
+    "01": "bg-[#C62828]",
+    "02": "bg-[#1565C0]",
+    "03": "bg-[#2E7D32]",
+    "04": "bg-[#F57F17]",
+  };
+  const bgColor = bgColors[project.id] || "bg-[#C62828]";
+
   return (
     <div className="min-h-screen w-full bg-[#FDFBF7] text-[#121212] font-sans selection:bg-[#FF1F00] selection:text-white overflow-x-hidden">
       <Navbar />
 
       <main className="relative">
-        {/* Hero Section */}
-        <div className="min-h-screen w-full flex flex-col items-center justify-center relative px-8 py-32 overflow-hidden">
+        {/* Hero Section (Royal Patrika Header) */}
+        <div className={`min-h-[80vh] w-full flex flex-col items-center justify-center relative px-8 py-32 overflow-hidden ${bgColor} text-white`}>
           {/* Background ID Ghost */}
-          <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[40vw] font-bold text-black/[0.03] pointer-events-none select-none uppercase">
+          <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[40vw] font-bold text-white/[0.04] pointer-events-none select-none uppercase">
             {project.id}
           </span>
           
           {/* Subtle Jaali Grid */}
-          <div className="absolute inset-0 opacity-[0.05] pointer-events-none jaali-grid scale-150 grayscale invert"></div>
+          <div className="absolute inset-0 opacity-[0.1] pointer-events-none jaali-grid scale-150 grayscale invert"></div>
 
-          {/* Corner Accents */}
-          <div className="absolute top-12 left-12 w-32 h-32 opacity-20 pointer-events-none">
-            <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-black stroke-[0.5]">
+          {/* Temple Corner Brackets (Light Accents) */}
+          <div className="absolute top-12 left-12 w-32 h-32 opacity-40 pointer-events-none">
+            <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-white stroke-[0.8]">
               <path d="M0 0 L100 0 M0 0 L0 100" />
-              <circle cx="0" cy="0" r="4" className="fill-[#FF1F00] stroke-none" />
+              <circle cx="0" cy="0" r="4" className="fill-white stroke-none" />
               <path d="M10 10 Q30 10 30 30" />
               <path d="M20 20 L40 40" strokeDasharray="2 2" />
             </svg>
           </div>
-          <div className="absolute top-12 right-12 w-32 h-32 opacity-20 pointer-events-none scale-x-[-1]">
-            <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-black stroke-[0.5]">
+          <div className="absolute top-12 right-12 w-32 h-32 opacity-40 pointer-events-none scale-x-[-1]">
+            <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-white stroke-[0.8]">
               <path d="M0 0 L100 0 M0 0 L0 100" />
-              <circle cx="0" cy="0" r="4" className="fill-[#FF1F00] stroke-none" />
+              <circle cx="0" cy="0" r="4" className="fill-white stroke-none" />
               <path d="M10 10 Q30 10 30 30" />
               <path d="M20 20 L40 40" strokeDasharray="2 2" />
             </svg>
           </div>
 
-          <div className="max-w-6xl w-full z-10 relative">
+          <div className="max-w-6xl w-full z-10 relative text-center flex flex-col items-center">
+            {/* Hanging Lotus Bell */}
+            <svg viewBox="0 0 20 60" className="absolute -top-32 left-1/2 -translate-x-1/2 w-8 h-24 stroke-white/40 fill-none">
+              <line x1="10" y1="0" x2="10" y2="40" strokeWidth="0.5" strokeDasharray="2 2" />
+              <path d="M2 40 Q10 55 18 40 Z" className="fill-white/40" stroke="none" />
+              <circle cx="10" cy="58" r="1" className="fill-white" stroke="none" />
+            </svg>
+
             {/* Mandala Watermark Behind Title */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] md:w-[800px] md:h-[800px] opacity-[0.04] pointer-events-none">
-              <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-black stroke-[0.2]">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] md:w-[800px] md:h-[800px] opacity-[0.08] pointer-events-none">
+              <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-white stroke-[0.3]">
                 <circle cx="50" cy="50" r="45" />
                 {[...Array(18)].map((_, i) => (
                   <path 
@@ -65,43 +81,43 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
               </svg>
             </div>
 
-            <div className="flex flex-col items-start space-y-8 relative z-10">
+            <div className="flex flex-col items-center space-y-8 relative z-10">
               <div className="flex items-center space-x-6">
-                <span className="font-pixel text-[11px] text-[#FF1F00] tracking-[0.3em] uppercase">{project.year} // SYSTEM_ID_{project.id}</span>
-                <div className="w-16 h-px bg-black/10"></div>
+                <span className="font-pixel text-[11px] text-white/60 tracking-[0.3em] uppercase">{project.year} // SYSTEM_ID_{project.id}</span>
+                <div className="w-16 h-px bg-white/20"></div>
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 rounded-full bg-[#FF1F00] animate-pulse"></div>
-                  <span className="text-[10px] font-pixel text-black/40 uppercase tracking-widest">{project.category}</span>
+                  <div className="w-2 h-2 rounded-full bg-white animate-pulse"></div>
+                  <span className="text-[10px] font-pixel text-white/60 uppercase tracking-widest">{project.category}</span>
                 </div>
               </div>
-              <h1 className="text-6xl md:text-9xl font-helvetica font-bold tracking-tighter uppercase leading-[0.85] text-[#121212]">
-                {project.title}
+              <h1 className="text-5xl md:text-9xl font-serif tracking-tight flex items-center justify-center gap-4">
+                {project.title.split(' ')[0]} <span className="font-helvetica font-bold uppercase text-3xl md:text-7xl mt-1 md:mt-4 text-white/90">{project.title.split(' ').slice(1).join(' ')}</span>
               </h1>
             </div>
 
-            {/* Technical Metadata Bar (Cream theme) */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-32 pt-12 border-t border-black/10 relative z-10">
+            {/* Technical Metadata Bar (White theme) */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-32 pt-12 border-t border-white/20 relative z-10 w-full text-left">
               <div>
-                <span className="block text-[10px] font-pixel text-[#FF1F00] uppercase tracking-[0.3em] mb-4">Architecture</span>
-                <span className="text-sm font-bold opacity-80 uppercase tracking-tight">Lead Engineering</span>
+                <span className="block text-[10px] font-pixel text-white/60 uppercase tracking-[0.3em] mb-4">Architecture</span>
+                <span className="text-sm font-bold uppercase tracking-tight">Lead Engineering</span>
               </div>
               <div>
-                <span className="block text-[10px] font-pixel text-[#FF1F00] uppercase tracking-[0.3em] mb-4">Timeframe</span>
-                <span className="text-sm font-bold opacity-80 uppercase tracking-tight">6 Month Sprint</span>
+                <span className="block text-[10px] font-pixel text-white/60 uppercase tracking-[0.3em] mb-4">Timeframe</span>
+                <span className="text-sm font-bold uppercase tracking-tight">6 Month Sprint</span>
               </div>
               <div>
-                <span className="block text-[10px] font-pixel text-[#FF1F00] uppercase tracking-[0.3em] mb-4">Core Stack</span>
+                <span className="block text-[10px] font-pixel text-white/60 uppercase tracking-[0.3em] mb-4">Core Stack</span>
                 <div className="flex flex-wrap gap-2">
                   {project.tech.map((t) => (
-                    <span key={t} className="text-[9px] font-mono border border-black/20 px-2 py-0.5 rounded-sm opacity-60 text-black uppercase">{t}</span>
+                    <span key={t} className="text-[9px] font-mono border border-white/20 px-2 py-0.5 rounded-sm opacity-80 text-white uppercase">{t}</span>
                   ))}
                 </div>
               </div>
               <div>
-                <span className="block text-[10px] font-pixel text-[#FF1F00] uppercase tracking-[0.3em] mb-4">Deployment</span>
+                <span className="block text-[10px] font-pixel text-white/60 uppercase tracking-[0.3em] mb-4">Deployment</span>
                 <div className="flex items-center space-x-2">
-                   <div className="w-2 h-2 bg-green-500 rounded-full animate-ping"></div>
-                   <span className="text-sm font-bold opacity-80 uppercase tracking-tight">Active Node</span>
+                   <div className="w-2 h-2 bg-green-400 rounded-full animate-ping"></div>
+                   <span className="text-sm font-bold uppercase tracking-tight">Active Node</span>
                 </div>
               </div>
             </div>
@@ -114,15 +130,18 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
           
           <div className="max-w-4xl mx-auto relative z-10">
             <div className="flex items-center space-x-8 mb-16">
+               {/* Decorative Indian Flower */}
                <svg width="48" height="48" viewBox="0 0 100 100" className="text-[#FF1F00]">
-                  <path d="M50 10 Q70 50 50 90 Q30 50 50 10" fill="none" stroke="currentColor" strokeWidth="1.5" />
-                  <path d="M10 50 Q50 70 90 50 Q50 30 10 50" fill="none" stroke="currentColor" strokeWidth="1.5" />
-                  <circle cx="50" cy="50" r="4" fill="currentColor" />
+                  {[...Array(8)].map((_, i) => (
+                    <path key={i} d="M50 50 Q65 20 50 0 Q35 20 50 50" fill="currentColor" transform={`rotate(${i * 45} 50 50)`} />
+                  ))}
+                  <circle cx="50" cy="50" r="15" fill="white" />
+                  <circle cx="50" cy="50" r="5" fill="currentColor" />
                </svg>
-               <h2 className="text-3xl md:text-5xl font-helvetica font-bold tracking-tight uppercase">System Anatomy</h2>
+               <h2 className="text-3xl md:text-5xl font-serif tracking-tight uppercase">System <span className="font-helvetica font-bold text-[#FF1F00]">Anatomy</span></h2>
             </div>
             
-            <p className="text-xl md:text-4xl font-medium leading-[1.1] mb-20 opacity-90 tracking-tight">
+            <p className="text-xl md:text-4xl font-serif italic leading-snug mb-20 opacity-90 tracking-tight">
               {project.longDesc}
             </p>
 
@@ -132,7 +151,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
                   <div className="w-8 h-[1px] bg-[#FF1F00]"></div>
                   <h3 className="font-pixel text-[10px] text-[#FF1F00] uppercase tracking-[0.4em]">Engineering Logic</h3>
                 </div>
-                <p className="text-base opacity-70 leading-relaxed font-medium">
+                <p className="text-base opacity-70 leading-relaxed font-serif">
                   The system was built with a focus on mathematical precision and high-concurrency stability. Every module follows a strict functional paradigm to ensure zero-latency performance in mission-critical environments.
                 </p>
               </div>
@@ -141,7 +160,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
                   <div className="w-8 h-[1px] bg-[#FF1F00]"></div>
                   <h3 className="font-pixel text-[10px] text-[#FF1F00] uppercase tracking-[0.4em]">Aesthetic Precision</h3>
                 </div>
-                <p className="text-base opacity-70 leading-relaxed font-medium">
+                <p className="text-base opacity-70 leading-relaxed font-serif">
                   We integrated heritage motifs like the Jaali lattice as functional background textures, blending ancient symmetry with modern digital interfaces to create a unique "Technical-Indian" soul.
                 </p>
               </div>
@@ -156,7 +175,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
                 </Link>
               )}
               {project.live && (
-                <Link href={project.live} className="group flex items-center space-x-4 bg-[#FF1F00] text-white px-8 py-4 rounded-sm hover:translate-y-[-4px] transition-all shadow-lg">
+                <Link href={project.live} className={`group flex items-center space-x-4 ${bgColor} text-white px-8 py-4 rounded-sm hover:translate-y-[-4px] transition-all shadow-lg`}>
                   <span className="text-[11px] font-pixel uppercase tracking-widest">Live Deployment</span>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"></path></svg>
                 </Link>
@@ -165,8 +184,8 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
           </div>
         </section>
 
-        {/* Navigation Footer (Cream theme) */}
-        <section className="py-32 px-8 bg-[#FFF5E1] border-t border-black/5">
+        {/* Navigation Footer (Patrika Cream theme) */}
+        <section className="py-32 px-8 bg-[#FDFBF7] border-t border-black/5">
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between">
              <Link 
               href="/projects" 
@@ -175,7 +194,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
               <span className="text-[10px] font-pixel text-black/40 uppercase tracking-widest">Return to Index</span>
               <div className="flex items-center space-x-6">
                 <div className="w-12 h-px bg-black/10 group-hover:w-20 transition-all"></div>
-                <h4 className="text-3xl font-helvetica font-bold uppercase group-hover:text-[#FF1F00] transition-colors tracking-tighter">All Systems</h4>
+                <h4 className="text-3xl font-serif tracking-tight group-hover:text-[#FF1F00] transition-colors">Project <span className="font-helvetica font-bold uppercase text-2xl">Index</span></h4>
               </div>
             </Link>
 

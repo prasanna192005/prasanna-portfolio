@@ -391,7 +391,10 @@ export default function VectorsPage() {
   <motion.g animate={{ rotate: 360 }} transition={{ duration: 15, repeat: Infinity, ease: "linear" }} style={{ transformOrigin: "50px 50px" }}>
     <g transform="translate(50, 50)">
       {[...Array(16)].map((_, i) => (
-        <path key={i} d="M0 0 Q15 -15 0 -35" fill="#FFB300" transform="rotate(\${i * 22.5})" />
+        <path key={i} d="M0 0 Q15 -15 0 -35 Q-15 -15 0 0" fill="#FFB300" transform="rotate(\${i * 22.5})" />
+      ))}
+      {[...Array(8)].map((_, i) => (
+        <path key={i} d="M0 0 Q10 -10 0 -20 Q-10 -10 0 0" fill="#FF6F00" transform="rotate(\${i * 45 + 11.25})" />
       ))}
       <circle r="6" fill="#BF360C" />
     </g>
