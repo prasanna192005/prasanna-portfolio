@@ -1,7 +1,9 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { motion } from "framer-motion";
+import { useState, useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 // --- Icons ---
 const CopyIcon = () => (
@@ -393,6 +395,202 @@ export const IndigoGalaxy = () => (
   </motion.g>
 );
 
+export const SacredLotus = () => (
+  <svg viewBox="0 0 100 100" className="w-56 h-56 md:w-72 md:h-72">
+    <g transform="translate(50, 50)">
+      {[...Array(8)].map((_, i) => (
+        <motion.path 
+          key={i} 
+          animate={{ rotate: [i * 45, i * 45 + 5, i * 45] }} 
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          d="M0 0 Q15 -25 0 -45 Q-15 -25 0 0" 
+          fill="#F06292" 
+          transform={`rotate(${i * 45})`}
+          style={{ originY: "bottom" }}
+        />
+      ))}
+      {[...Array(8)].map((_, i) => (
+        <motion.path 
+          key={i} 
+          animate={{ rotate: [i * 45 + 22.5, i * 45 + 17.5, i * 45 + 22.5] }} 
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          d="M0 0 Q10 -15 0 -30 Q-10 -15 0 0" 
+          fill="#F8BBD0" 
+          transform={`rotate(${i * 45 + 22.5})`}
+          style={{ originY: "bottom" }}
+        />
+      ))}
+      <circle cx="0" cy="-5" r="6" fill="#FBC02D" />
+    </g>
+  </svg>
+);
+
+export const GoldenSunflower = () => (
+  <svg viewBox="0 0 100 100" className="w-56 h-56 md:w-72 md:h-72">
+    <g transform="translate(50, 50)">
+      <motion.g animate={{ rotate: 360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }}>
+        {[...Array(12)].map((_, i) => (
+          <path key={i} d="M0 0 Q12 -20 0 -40 Q-12 -20 0 0" fill="#FFD600" transform={`rotate(${i * 30})`} />
+        ))}
+      </motion.g>
+      <motion.g animate={{ rotate: -360 }} transition={{ duration: 25, repeat: Infinity, ease: "linear" }}>
+        {[...Array(12)].map((_, i) => (
+          <path key={i} d="M0 0 Q8 -15 0 -30 Q-8 -15 0 0" fill="#FFAB00" transform={`rotate(${i * 30 + 15})`} />
+        ))}
+      </motion.g>
+      <circle r="12" fill="#3E2723" />
+      {[...Array(20)].map((_, i) => (
+        <circle key={i} cx={Math.cos(i) * 6} cy={Math.sin(i) * 6} r="1" fill="#FFD600" opacity="0.3" />
+      ))}
+    </g>
+  </svg>
+);
+
+export const PeacockDance = () => (
+  <svg viewBox="0 0 100 100" className="w-56 h-56 md:w-72 md:h-72">
+    <g transform="translate(50, 50)">
+      <motion.g animate={{ rotate: 360 }} transition={{ duration: 40, repeat: Infinity, ease: "linear" }}>
+        {[...Array(12)].map((_, i) => (
+          <motion.g key={i} animate={{ rotate: [0, 5, 0] }} transition={{ duration: 4, delay: i * 0.2, repeat: Infinity }} transform={`rotate(${i * 30})`}>
+            <path d="M0 0 Q15 -25 0 -45 Q-15 -25 0 0" fill="#00838F" opacity="0.8" />
+            <circle cx="0" cy="-35" r="6" fill="#1A237E" />
+            <circle cx="0" cy="-35" r="2.5" fill="#00E676" />
+          </motion.g>
+        ))}
+      </motion.g>
+      <circle r="8" fill="#1A237E" />
+    </g>
+  </svg>
+);
+
+export const MandalaAura = () => (
+  <svg viewBox="0 0 100 100" className="w-56 h-56 md:w-72 md:h-72">
+    <defs>
+      <radialGradient id="auraGrad" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stopColor="#FFD600" stopOpacity="0.4" />
+        <stop offset="100%" stopColor="#FFD600" stopOpacity="0" />
+      </radialGradient>
+    </defs>
+    <motion.circle animate={{ scale: [1, 1.4, 1], opacity: [0.3, 0.6, 0.3] }} transition={{ duration: 4, repeat: Infinity }} cx="50" cy="50" r="35" fill="url(#auraGrad)" />
+    <g transform="translate(50, 50)">
+      <motion.g animate={{ rotate: 360 }} transition={{ duration: 25, repeat: Infinity, ease: "linear" }}>
+        {[...Array(8)].map((_, i) => (
+          <path key={i} d="M0 0 Q10 -15 20 0 Q10 15 0 0" fill="#E91E63" transform={`rotate(${i * 45})`} />
+        ))}
+      </motion.g>
+      <motion.g animate={{ rotate: -360 }} transition={{ duration: 30, repeat: Infinity, ease: "linear" }}>
+        {[...Array(8)].map((_, i) => (
+          <path key={i} d="M0 0 Q8 -10 16 0 Q8 10 0 0" fill="#FF9800" transform={`rotate(${i * 45 + 22.5})`} />
+        ))}
+      </motion.g>
+      <circle r="5" fill="#FFD600" />
+    </g>
+  </svg>
+);
+
+export const TempleJaali = () => (
+  <svg viewBox="0 0 100 100" className="w-full h-full p-4">
+    <defs>
+      <pattern id="templeJaaliLib" x="0" y="0" width="25" height="25" patternUnits="userSpaceOnUse">
+        <path d="M12.5 0 L25 12.5 L12.5 25 L0 12.5 Z" fill="none" stroke="#2E7D32" strokeWidth="1" />
+        <circle cx="12.5" cy="12.5" r="4" fill="none" stroke="#FFD700" strokeWidth="0.5" />
+        <motion.circle animate={{ opacity: [0.2, 0.8, 0.2], scale: [0.8, 1.2, 0.8] }} transition={{ duration: 3, repeat: Infinity }} cx="12.5" cy="12.5" r="1.5" fill="#FFD700" />
+      </pattern>
+    </defs>
+    <rect width="100" height="100" fill="url(#templeJaaliLib)" />
+  </svg>
+);
+
+export const VibrantPinwheel = () => (
+  <svg viewBox="0 0 100 100" className="w-56 h-56 md:w-72 md:h-72">
+    <g transform="translate(50, 50)">
+      <motion.g animate={{ rotate: 360 }} transition={{ duration: 8, repeat: Infinity, ease: "linear" }}>
+        {[...Array(8)].map((_, i) => (
+          <path 
+            key={i} 
+            d="M0 0 Q20 -20 40 0 Q20 20 0 0" 
+            fill={[
+              "#FF9800", "#FFB74D", // Saffron
+              "#00838F", "#4DD0E1", // Teal
+              "#1A237E", "#5C6BC0", // Indigo
+              "#E91E63", "#F06292"  // Rose
+            ][i]} 
+            transform={`rotate(${i * 45})`} 
+          />
+        ))}
+      </motion.g>
+      <circle r="4" fill="#121212" />
+      <circle r="1.5" fill="white" />
+    </g>
+  </svg>
+);
+
+export const InfiniteKnot = () => (
+  <svg viewBox="0 0 100 100" className="w-56 h-56 md:w-72 md:h-72">
+    <motion.g 
+      animate={{ scale: [1, 1.05, 1], opacity: [0.8, 1, 0.8] }} 
+      transition={{ duration: 3, repeat: Infinity }}
+    >
+      <path 
+        d="M30 30 L70 70 M30 70 L70 30 M30 50 L70 50 M50 30 L50 70" 
+        stroke="#FFD700" 
+        strokeWidth="6" 
+        strokeLinecap="round" 
+        fill="none" 
+      />
+      <path 
+        d="M20 20 H80 V80 H20 Z" 
+        stroke="#D32F2F" 
+        strokeWidth="4" 
+        fill="none" 
+        strokeDasharray="10 5"
+      />
+    </motion.g>
+  </svg>
+);
+
+export const VibrantFloralCross = () => {
+  const containerRef = useRef<SVGGElement>(null);
+
+  useGSAP(() => {
+    // Staggered Petal Pulse
+    gsap.to(".floral-petal", {
+      scale: 1.05,
+      duration: 2,
+      repeat: -1,
+      yoyo: true,
+      stagger: {
+        each: 0.3,
+        from: "center"
+      },
+      ease: "power1.inOut"
+    });
+  }, { scope: containerRef });
+
+  const paths = [
+    "M49.938 50.062C49.938 50.062 51.589 74.042 37.815 87.815C24.041 101.588 0.0619788 99.938 0.0619788 99.938C0.0619788 99.938 -1.58902 75.958 12.185 62.185C25.959 48.412 49.938 50.062 49.938 50.062Z",
+    "M99.938 0.0620103C99.938 0.0620103 101.589 24.042 87.815 37.815C74.041 51.588 50.062 49.938 50.062 49.938C50.062 49.938 48.411 25.958 62.185 12.185C75.959 -1.58799 99.938 0.0620103 99.938 0.0620103Z",
+    "M49.938 49.938C49.938 49.938 25.958 51.589 12.185 37.815C-1.58799 24.041 0.0620103 0.0619788 0.0620103 0.0619788C0.0620103 0.0619788 24.042 -1.58902 37.815 12.185C51.588 25.959 49.938 49.938 49.938 49.938Z",
+    "M99.938 99.938C99.938 99.938 75.958 101.589 62.185 87.815C48.412 74.041 50.062 50.062 50.062 50.062C50.062 50.062 74.042 48.411 87.815 62.185C101.588 75.959 99.938 99.938 99.938 99.938Z"
+  ];
+
+  return (
+    <svg viewBox="0 0 100 100" className="w-56 h-56 md:w-72 md:h-72">
+      <g ref={containerRef} style={{ transformOrigin: "50px 50px" }}>
+        {paths.map((d, i) => (
+          <path 
+            key={i} 
+            className="floral-petal"
+            d={d} 
+            fill={["#7C4DFF", "#2196F3", "#F44336", "#FFD600"][i]} 
+            style={{ transformOrigin: "50px 50px" }}
+          />
+        ))}
+      </g>
+    </svg>
+  );
+};
+
 // --- Wrapper Component ---
 
 export const VectorBlock = ({ children, className, delay = 0, code }: { children: React.ReactNode; className?: string; delay?: number; code: string }) => {
@@ -407,11 +605,6 @@ export const VectorBlock = ({ children, className, delay = 0, code }: { children
 
   return (
     <motion.div 
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay }}
-      viewport={{ once: true }}
-      whileHover={{ scale: 1.02, y: -5 }}
       className={`relative group w-[180px] h-[180px] md:w-[240px] md:h-[240px] flex items-center justify-center overflow-hidden shadow-inner flex-shrink-0 cursor-pointer ${className}`}
     >
       {children}

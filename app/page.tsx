@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Dither from "@/components/Dither";
 import Navbar from "@/components/Navbar";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
 
 import { projects } from "@/lib/projects";
@@ -129,12 +130,62 @@ export default function Home() {
                  <rect x="5" y="86" width="2" height="2" fill="white" />
                </svg>
             </span>
-            Software developer and <br className="hidden md:block" />
-            problem solver passionate about <br className="hidden md:block" />
-            building impactful tech <br className="hidden md:block" />
+             Software developer and <br className="hidden md:block" />
+             problem solver 
+              <div className="inline-block align-middle mx-2">
+                <svg width="36" height="36" viewBox="0 0 100 100" className="drop-shadow-lg overflow-visible">
+                  <motion.g animate={{ rotate: -360 }} transition={{ duration: 25, repeat: Infinity, ease: "linear" }} style={{ transformOrigin: "50px 50px" }}>
+                    <circle cx="50" cy="50" r="48" fill="#FFC107" />
+                    <g transform="translate(50, 50)">
+                      {[...Array(24)].map((_, i) => (
+                        <path key={i} d="M0 -45 L5 -10 L-5 -10 Z" fill="#FF5722" transform={`rotate(${i * 15})`} />
+                      ))}
+                      <circle r="12" fill="#E65100" />
+                      <circle r="6" fill="#FFD700" />
+                    </g>
+                  </motion.g>
+                </svg>
+              </div>
+             passionate about <br className="hidden md:block" />
+            building impactful tech 
+             <div className="inline-block align-middle mx-2">
+               <svg width="32" height="32" viewBox="0 0 100 100" className="drop-shadow-lg rounded-sm overflow-hidden">
+                 <rect width="100" height="100" fill="#01579B" />
+                 <path d="M10 50 Q50 10 90 50 Q50 90 10 50" fill="white" />
+                 <motion.g animate={{ x: [-2, 2, -2], y: [-1, 1, -1] }} transition={{ duration: 4, repeat: Infinity }}>
+                   <circle cx="50" cy="50" r="18" fill="#01579B" />
+                   <circle cx="50" cy="50" r="8" fill="#121212" />
+                 </motion.g>
+               </svg>
+             </div>
+             <br className="hidden md:block" />
             experiences through code, <br className="hidden md:block" />
             creativity, and innovation. 
           </h1>
+
+          <div className="mt-6 mx-50 flex justify-start">
+            <svg width="55" height="55" viewBox="0 0 100 100" className="drop-shadow-lg rounded-md overflow-hidden">
+              <rect width="100" height="100" fill="#1EAB80" />
+              <motion.g animate={{ rotate: 360 }} transition={{ duration: 12, repeat: Infinity, ease: "linear" }} style={{ transformOrigin: "50px 50px" }}>
+                {[...Array(12)].map((_, j) => (
+                  <path key={j} d="M50 50 L35 -30 L65 -30 Z" fill="black" transform={`rotate(${j * 30}, 50, 50)`} />
+                ))}
+              </motion.g>
+              <circle cx="50" cy="50" r="18" fill="#FF0066" />
+            </svg>
+            
+            <svg width="55" height="55" viewBox="0 0 100 100" className="drop-shadow-lg rounded-md overflow-hidden ml-4">
+              <rect width="100" height="100" fill="#FFF8E1" />
+              <motion.g animate={{ rotate: 360 }} transition={{ duration: 15, repeat: Infinity, ease: "linear" }} style={{ transformOrigin: "50px 50px" }}>
+                <g transform="translate(50, 50)">
+                  {[...Array(16)].map((_, i) => (
+                    <path key={i} d="M0 0 Q15 -15 0 -35" fill="#FFB300" transform={`rotate(${i * 22.5})`} />
+                  ))}
+                  <circle r="6" fill="#BF360C" />
+                </g>
+              </motion.g>
+            </svg>
+          </div>
 
 
           {/* Animating Indian-Inspired Technical Mandala (COLORFUL) */}

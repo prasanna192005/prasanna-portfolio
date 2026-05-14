@@ -1,3 +1,5 @@
+"use client";
+import { motion } from "framer-motion";
 export default function FontShowcase() {
   const weights = [100, 200, 300, 400, 500, 600, 700, 800, 900];
   
@@ -24,6 +26,7 @@ export default function FontShowcase() {
 
       <footer className="pt-12 text-sm text-gray-400">
         Built with Next.js and Inter variable font configuration.
+        
       </footer>
     </div>
   );
