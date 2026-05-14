@@ -2,30 +2,16 @@
 
 import Link from "next/link";
 import { projects } from "@/lib/projects";
+import { PeacockBorders } from "@/components/PeacockBorders";
 
 const ProjectsSection = () => {
   return (
     <section className="min-h-screen w-full bg-[#FDFBF7] flex flex-col items-center py-32 px-8 relative overflow-hidden">
+      {/* Royal Peacock Framing */}
+      <PeacockBorders position="absolute" topOffset="8rem" />
+
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 opacity-[0.05] pointer-events-none jaali-grid scale-150 grayscale invert"></div>
-
-      {/* Section Corner Accents (Traditional Motif) */}
-      <div className="absolute top-12 left-12 w-24 h-24 opacity-20 pointer-events-none">
-        <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-black stroke-[0.5]">
-          <path d="M0 0 L100 0 M0 0 L0 100" />
-          <circle cx="0" cy="0" r="4" className="fill-[#FF1F00] stroke-none" />
-          <path d="M10 10 Q30 10 30 30" />
-          <path d="M20 20 L40 40" strokeDasharray="2 2" />
-        </svg>
-      </div>
-      <div className="absolute top-12 right-12 w-24 h-24 opacity-20 pointer-events-none scale-x-[-1]">
-        <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-black stroke-[0.5]">
-          <path d="M0 0 L100 0 M0 0 L0 100" />
-          <circle cx="0" cy="0" r="4" className="fill-[#FF1F00] stroke-none" />
-          <path d="M10 10 Q30 10 30 30" />
-          <path d="M20 20 L40 40" strokeDasharray="2 2" />
-        </svg>
-      </div>
 
       <div className="max-w-6xl w-full z-10 text-center">
         <div className="flex flex-col items-center mb-24 relative">
@@ -56,7 +42,7 @@ const ProjectsSection = () => {
           
           <span className="font-pixel text-[10px] text-black/40 uppercase tracking-[0.5em] mb-4 block relative z-10">Phase 02</span>
           <h2 className="text-4xl md:text-5xl font-serif tracking-tight text-[#121212] relative z-10 flex items-center justify-center gap-3">
-            Selected <span className="font-helvetica font-bold uppercase text-2xl md:text-3xl text-[#FF1F00] mt-1.5">Works</span>
+            Selected <span className="font-helvetica font-bold uppercase text-2xl md:text-3xl text-[#FF1F00] mt-1.5">Projects</span>
           </h2>
         </div>
 
@@ -69,6 +55,9 @@ const ProjectsSection = () => {
               href={`/projects/${project.id}`}
               className={`group relative aspect-[16/10] ${bgColors[index]} p-8 flex flex-col justify-between hover:-translate-y-1 transition-transform duration-700 overflow-hidden text-left shadow-sm hover:shadow-xl`}
             >
+              {/* Khadi Paper Grain Overlay */}
+              <div className="grain-overlay opacity-20 pointer-events-none" />
+
               {/* Outer Traditional Border Frame (Light Accents) */}
               <div className="absolute inset-4 border border-[#FFF8E1]/20 group-hover:border-[#FFF8E1]/60 transition-colors duration-700 pointer-events-none">
                 

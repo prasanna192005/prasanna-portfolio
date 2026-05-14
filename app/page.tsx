@@ -4,6 +4,7 @@ import HeroSection from "@/components/sections/HeroSection";
 import SkillsSection from "@/components/sections/SkillsSection";
 import ProjectsSection from "@/components/sections/ProjectsSection";
 import ShowcaseSection from "@/components/sections/ShowcaseSection";
+import ExperienceSection from "@/components/sections/ExperienceSection";
 import VelocityMarquee from "@/components/VelocityMarquee";
 import Navbar from "@/components/Navbar";
 import ScrollChakra from "@/components/ScrollChakra";
@@ -29,6 +30,9 @@ export default function Home() {
 
       {/* About & Showcase */}
       <ShowcaseSection />
+
+      {/* Career Lineage */}
+      <ExperienceSection />
     </main>
   );
 }
