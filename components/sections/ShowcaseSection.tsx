@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const ShowcaseSection = () => {
   return (
-    <section className="min-h-screen w-full flex items-center justify-center relative bg-[#BF360C] px-8 py-32 overflow-hidden">
+    <section id="about" className="min-h-screen w-full flex items-center justify-center relative bg-[#BF360C] px-8 py-32 overflow-hidden">
       
       {/* Khadi Texture Overlay */}
       <div className="grain-overlay opacity-20 pointer-events-none" />

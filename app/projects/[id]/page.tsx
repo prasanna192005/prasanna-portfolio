@@ -2,6 +2,7 @@ import { projects } from "@/lib/projects";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import { notFound } from "next/navigation";
+import DynamicBackButton from "@/components/DynamicBackButton";
 
 export async function generateStaticParams() {
   return projects.map((project) => ({
@@ -29,6 +30,8 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
   return (
     <div className="min-h-screen w-full bg-[#FDFBF7] text-[#121212] font-sans selection:bg-[#FF1F00] selection:text-white overflow-x-hidden">
       <Navbar />
+
+      <DynamicBackButton href="/projects" label="Project Index" />
 
       <main className="relative">
         {/* Hero Section (Royal Patrika Header) */}

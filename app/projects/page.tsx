@@ -12,6 +12,24 @@ export default function ProjectsPage() {
   return (
     <div className="min-h-screen w-full bg-[#FDFBF7] text-[#121212] font-sans selection:bg-[#FF1F00] selection:text-white relative overflow-x-hidden">
       <Navbar />
+
+      {/* Persistent Back Button */}
+      <div className="fixed top-8 left-30 z-[100] hidden md:block">
+        <Link 
+          href="/" 
+          className="group flex items-center space-x-4 bg-white/40 backdrop-blur-md border border-black/5 pl-2 pr-6 py-2 rounded-full hover:bg-white transition-all shadow-sm hover:shadow-xl"
+        >
+          <div className="w-10 h-10 bg-[#121212] rounded-full flex items-center justify-center text-white group-hover:rotate-[-45deg] transition-transform duration-500">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+          </div>
+          <div className="flex flex-col">
+            <span className="text-[7px] font-pixel text-black/40 uppercase tracking-widest leading-none mb-1">Return_Node</span>
+            <span className="text-[11px] font-bold uppercase tracking-tighter leading-none">Command</span>
+          </div>
+        </Link>
+      </div>
       
       {/* Scroll Progress Indicator */}
       <ScrollChakra />

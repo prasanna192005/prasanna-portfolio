@@ -6,7 +6,7 @@ import { PeacockBorders } from "@/components/PeacockBorders";
 
 const ProjectsSection = () => {
   return (
-    <section className="min-h-screen w-full bg-[#FDFBF7] flex flex-col items-center py-32 px-8 relative overflow-hidden">
+    <section id="projects" className="min-h-screen w-full bg-[#FDFBF7] flex flex-col items-center py-32 px-8 relative overflow-hidden">
       {/* Royal Peacock Framing */}
       <PeacockBorders position="absolute" topOffset="8rem" />
 
@@ -162,7 +162,7 @@ const ProjectsSection = () => {
               </svg>
               <div className="w-8 h-px bg-black/10 group-hover:w-16 group-hover:bg-[#FF1F00] transition-all"></div>
             </div>
-            <span className="text-[11px] font-pixel text-black/60 uppercase tracking-[0.5em] group-hover:text-[#FF1F00] transition-all">View All Projects</span>
+            <span className="text-[10px] md:text-xs font-helvetica font-bold text-black/60 uppercase tracking-[0.1em] group-hover:text-[#FF1F00] transition-all">View All Projects</span>
           </Link>
         </div>
       </div>

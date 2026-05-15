@@ -44,14 +44,14 @@ const Navbar = () => {
                 <circle cx="50" cy="50" r="10" fill="#FDFBF7" />
                 <circle cx="50" cy="50" r="4" fill="#BF360C" />
               </svg>
-              <span className="ml-3 font-serif italic text-lg text-[#121212] tracking-tighter">P.</span>
             </Link>
 
             <div className="flex items-center space-x-8 text-[10px] font-pixel uppercase tracking-[0.3em] text-[#121212]/60">
               {[
-                { name: "Systems", path: "/projects" },
-                { name: "About", path: "/about" },
-                { name: "Contact", path: "/contact" }
+                { name: "Projects", path: "/#projects" },
+                { name: "Design", path: "/design" },
+                { name: "About", path: "/#about" },
+                { name: "Contact", path: "/#contact" }
               ].map((item) => (
                 <Link 
                   key={item.name}

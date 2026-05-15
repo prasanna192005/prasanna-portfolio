@@ -420,7 +420,7 @@ export const SacredLotus = () => (
           style={{ originY: "bottom" }}
         />
       ))}
-      <circle cx="0" cy="-5" r="6" fill="#FBC02D" />
+      <circle cx="0" cy="0" r="6" fill="#FBC02D" />
     </g>
   </svg>
 );

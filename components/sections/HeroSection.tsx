@@ -136,7 +136,7 @@ const HeroSection = () => {
            creativity, and innovation. 
         </h1>
 
-        <div className="mt-6 mx-50 flex justify-start">
+        <div className="mt-6 flex justify-center">
           <svg width="55" height="55" viewBox="0 0 100 100" className="drop-shadow-lg rounded-md overflow-hidden">
             <rect width="100" height="100" fill="#1EAB80" />
             <motion.g animate={{ rotate: 360 }} transition={{ duration: 12, repeat: Infinity, ease: "linear" }} style={{ transformOrigin: "50px 50px" }}>
@@ -160,6 +160,38 @@ const HeroSection = () => {
                 <circle r="6" fill="#BF360C" />
               </g>
             </motion.g>
+          </svg>
+
+          <svg width="55" height="55" viewBox="0 0 100 100" className="drop-shadow-lg rounded-md overflow-hidden ml-4">
+            <rect width="100" height="100" fill="#E91E63" />
+            <path d="M5 50 Q50 10 95 50 Q50 90 5 50 Z" fill="white" />
+            <circle cx="50" cy="50" r="18" fill="#E91E63" />
+            <motion.path 
+              animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 180, 270, 360] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              style={{ transformOrigin: "50px 50px" }}
+              d="M50 35 L54 46 L65 50 L54 54 L50 65 L46 54 L35 50 L46 46 Z" fill="#FFD700" 
+            />
+          </svg>
+
+          <svg width="55" height="55" viewBox="0 0 100 100" className="drop-shadow-lg rounded-md overflow-hidden ml-4">
+            <rect width="100" height="100" fill="#FFFDE7" />
+            <g transform="translate(50, 50)">
+              <motion.g animate={{ rotate: 360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }}>
+                {[...Array(12)].map((_, i) => (
+                  <path key={i} d="M0 0 Q12 -20 0 -40 Q-12 -20 0 0" fill="#FFD600" transform={`rotate(${i * 30})`} />
+                ))}
+              </motion.g>
+              <motion.g animate={{ rotate: -360 }} transition={{ duration: 25, repeat: Infinity, ease: "linear" }}>
+                {[...Array(12)].map((_, i) => (
+                  <path key={i} d="M0 0 Q8 -15 0 -30 Q-8 -15 0 0" fill="#FFAB00" transform={`rotate(${i * 30 + 15})`} />
+                ))}
+              </motion.g>
+              <circle r="12" fill="#3E2723" />
+              {[...Array(20)].map((_, i) => (
+                <circle key={i} cx={Math.cos(i) * 6} cy={Math.sin(i) * 6} r="1" fill="#FFD600" opacity="0.3" />
+              ))}
+            </g>
           </svg>
         </div>
 

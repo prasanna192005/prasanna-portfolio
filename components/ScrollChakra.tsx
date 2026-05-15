@@ -14,10 +14,27 @@ const ScrollChakra = () => {
 
   const rotate = useTransform(smoothProgress, [0, 1], [0, 360]);
 
-  // Dynamic Color Transition (White on Hero Red, Red on Paper Cream)
-  // We transition from White to Red between 0px and 600px scroll
-  const themeColor = useTransform(scrollY, [0, 600], ["#FFFFFF", "#FF1F00"]);
-  const textColor = useTransform(scrollY, [0, 600], ["rgba(255,255,255,0.4)", "#FF1F00"]);
+  // Dynamic Color Transition
+  // 1. White on Hero (#FF1F00)
+  // 2. Red on Paper Cream (#FDFBF7)
+  // 3. White on Contact Blue (#2563EB)
+  const themeColor = useTransform(
+    scrollYProgress, 
+    [0, 0.05, 0.9, 0.98], 
+    ["#FFFFFF", "#FF1F00", "#FF1F00", "#FFFFFF"]
+  );
+  
+  const textColor = useTransform(
+    scrollYProgress, 
+    [0, 0.05, 0.9, 0.98], 
+    ["rgba(255,255,255,0.4)", "rgba(255,31,0,0.4)", "rgba(255,31,0,0.4)", "rgba(255,255,255,0.4)"]
+  );
+
+  const innerCircleColor = useTransform(
+    scrollYProgress,
+    [0, 0.05, 0.9, 0.98],
+    ["#FF1F00", "#FFFFFF", "#FFFFFF", "#FF1F00"]
+  );
 
   return (
     <div className="fixed bottom-8 right-8 z-[90] pointer-events-none flex flex-col items-center group">
@@ -64,7 +81,7 @@ const ScrollChakra = () => {
                 />
               ))}
             </motion.g>
-            <motion.circle cx="50" cy="50" r="12" style={{ fill: "white" }} />
+            <motion.circle cx="50" cy="50" r="12" style={{ fill: innerCircleColor }} />
             <motion.circle cx="50" cy="50" r="6" style={{ fill: themeColor }} />
           </svg>
         </motion.div>

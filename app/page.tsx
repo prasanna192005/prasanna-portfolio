@@ -10,6 +10,7 @@ import ContactSection from "@/components/sections/ContactSection";
 import VelocityMarquee from "@/components/VelocityMarquee";
 import Navbar from "@/components/Navbar";
 import ScrollChakra from "@/components/ScrollChakra";
+import ContactSectionNew from "@/components/sections/ContactSectionNew";
 
 export default function Home() {
   return (
@@ -40,7 +41,8 @@ export default function Home() {
       <ArtifactsSection />
 
       {/* Final Dispatch */}
-      <ContactSection />
+     
+      <ContactSectionNew />
     </main>
   );
 }
