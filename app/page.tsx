@@ -5,6 +5,7 @@ import SkillsSection from "@/components/sections/SkillsSection";
 import ProjectsSection from "@/components/sections/ProjectsSection";
 import ShowcaseSection from "@/components/sections/ShowcaseSection";
 import ExperienceSection from "@/components/sections/ExperienceSection";
+import ArtifactsSection from "@/components/sections/ArtifactsSection";
 import ContactSection from "@/components/sections/ContactSection";
 import VelocityMarquee from "@/components/VelocityMarquee";
 import Navbar from "@/components/Navbar";
@@ -34,6 +35,9 @@ export default function Home() {
 
       {/* Career Lineage */}
       <ExperienceSection />
+
+      {/* Human Artifacts */}
+      <ArtifactsSection />
 
       {/* Final Dispatch */}
       <ContactSection />
