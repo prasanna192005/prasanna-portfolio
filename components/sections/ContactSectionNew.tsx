@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
@@ -8,8 +8,39 @@ import Image from "next/image";
 const ContactSectionNew = () => {
   const [emailCopied, setEmailCopied] = useState(false);
   const [phoneCopied, setPhoneCopied] = useState(false);
+  
+  // Form State
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formData, setFormData] = useState({ name: '', contact: '', message: '' });
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
   const email = "prasannapandharikar19@gmail.com";
   const phone = "+91 8468845787";
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('loading');
+    
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      
+      if (res.ok) {
+        setStatus('success');
+        setFormData({ name: '', contact: '', message: '' });
+        setTimeout(() => setStatus('idle'), 5000);
+      } else {
+        setStatus('error');
+        setTimeout(() => setStatus('idle'), 3000);
+      }
+    } catch (error) {
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 3000);
+    }
+  };
 
   const copyToClipboard = (text: string, type: 'email' | 'phone') => {
     navigator.clipboard.writeText(text);
@@ -160,6 +191,16 @@ const ContactSectionNew = () => {
                     <span className="font-pixel text-[8px] text-white/30 uppercase tracking-widest mb-1">Operating_From</span>
                     <span className="text-white/60 font-serif text-xs">Pune, MH</span>
                  </div>
+                 
+                 <div className="flex flex-col border-l border-white/10 pl-8">
+                    <span className="font-pixel text-[8px] text-white/30 uppercase tracking-widest mb-1">Send_Message</span>
+                    <button 
+                      onClick={() => setIsModalOpen(true)}
+                      className="text-white hover:text-white/80 transition-colors font-serif italic text-lg lg:text-xl underline decoration-white/40 underline-offset-4 text-left"
+                    >
+                      Want to send me a message? Click here.
+                    </button>
+                 </div>
               </div>
            </div>
 
@@ -254,6 +295,112 @@ const ContactSectionNew = () => {
             />
          </motion.div>
       </div>
+
+      {/* Dispatch Modal Overlay */}
+      <AnimatePresence>
+        {isModalOpen && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsModalOpen(false)}
+              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            />
+            
+            <motion.div 
+              initial={{ opacity: 0, y: 50, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 20, scale: 0.95 }}
+              className="relative w-full max-w-md bg-[#2563EB] border border-white/20 p-8 shadow-2xl z-10"
+            >
+              <button 
+                onClick={() => setIsModalOpen(false)}
+                className="absolute top-6 right-6 text-white/40 hover:text-white transition-colors"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+              
+              <h3 className="font-serif text-white text-3xl mb-8 tracking-tighter">Dispatch Terminal</h3>
+              
+              <form onSubmit={handleSubmit} className="flex flex-col space-y-6">
+                {/* Name */}
+                <div className="flex flex-col relative group">
+                   <label className="font-pixel text-[8px] uppercase tracking-widest text-white/40 mb-2">[01_IDENTIFIER]</label>
+                   <input 
+                     type="text" 
+                     required
+                     disabled={status === 'loading' || status === 'success'}
+                     value={formData.name}
+                     onChange={(e) => setFormData({...formData, name: e.target.value})}
+                     className="bg-transparent border-b border-white/20 pb-2 text-white text-lg font-serif placeholder:text-white/20 focus:outline-none focus:border-white transition-colors disabled:opacity-50"
+                     placeholder="Your Name"
+                   />
+                </div>
+
+                {/* Contact Info */}
+                <div className="flex flex-col relative group">
+                   <label className="font-pixel text-[8px] uppercase tracking-widest text-white/40 mb-2">[02_CONTACT_NODE]</label>
+                   <input 
+                     type="text" 
+                     required
+                     disabled={status === 'loading' || status === 'success'}
+                     value={formData.contact}
+                     onChange={(e) => setFormData({...formData, contact: e.target.value})}
+                     className="bg-transparent border-b border-white/20 pb-2 text-white text-lg font-serif placeholder:text-white/20 focus:outline-none focus:border-white transition-colors disabled:opacity-50"
+                     placeholder="Email, phone, or a way to reach you back..."
+                   />
+                </div>
+
+                {/* Message */}
+                <div className="flex flex-col relative group">
+                   <label className="font-pixel text-[8px] uppercase tracking-widest text-white/40 mb-2">[03_MANIFESTO]</label>
+                   <textarea 
+                     required
+                     disabled={status === 'loading' || status === 'success'}
+                     value={formData.message}
+                     onChange={(e) => setFormData({...formData, message: e.target.value})}
+                     className="bg-transparent border-b border-white/20 pb-2 text-white text-lg font-serif placeholder:text-white/20 focus:outline-none focus:border-white transition-colors min-h-[80px] resize-none disabled:opacity-50"
+                     placeholder="Let's chat about a project, new tech, or just say hi! :)"
+                   />
+                </div>
+
+                {/* Submit Button */}
+                <button 
+                  type="submit"
+                  disabled={status === 'loading' || status === 'success'}
+                  className={`mt-4 py-3 px-6 border border-white/20 flex justify-between items-center transition-all duration-300 disabled:opacity-80 disabled:cursor-not-allowed ${status === 'success' ? 'bg-white text-[#2563EB]' : 'hover:bg-white/10 hover:border-white/40 text-white'}`}
+                >
+                  <span className="font-pixel text-[10px] uppercase tracking-widest">
+                    {status === 'idle' && 'SEND MESSAGE'}
+                    {status === 'loading' && 'SENDING...'}
+                    {status === 'success' && 'MESSAGE SENT'}
+                    {status === 'error' && 'FAILED TO SEND'}
+                  </span>
+                  
+                  {status === 'success' ? (
+                     <span className="font-bold ml-4">✓</span>
+                  ) : (
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className={`ml-4 ${status === 'loading' ? 'animate-spin' : ''}`}>
+                      {status === 'loading' ? (
+                        <path d="M21 12a9 9 0 1 1-6.219-8.56"></path>
+                      ) : (
+                        <>
+                          <line x1="22" y1="2" x2="11" y2="13"></line>
+                          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </>
+                      )}
+                    </svg>
+                  )}
+                </button>
+             </form>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
 
     </section>
   );
