@@ -138,23 +138,15 @@ const ShowcaseSection = () => {
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8 mt-16">
-            <Link 
-              href="/contact" 
-              className="group relative px-10 py-4 bg-[#FDFBF7] text-[#BF360C] overflow-hidden"
+            <button 
+              onClick={() => window.dispatchEvent(new Event('open-contact-modal'))}
+              className="group relative px-10 py-4 bg-[#FDFBF7] text-[#BF360C] overflow-hidden inline-block text-left"
             >
-              <div className="relative z-10 font-pixel text-[10px] uppercase tracking-widest font-bold">Initiate Dispatch</div>
-              <motion.div 
-                initial={false}
-                whileHover={{ x: '100%' }}
-                className="absolute inset-0 bg-[#FF1F00] translate-x-[-100%] transition-transform duration-500"
-              />
-              <motion.div 
-                whileHover={{ color: '#FFFFFF' }}
-                className="absolute inset-0 flex items-center justify-center font-pixel text-[10px] uppercase tracking-widest font-bold opacity-0 group-hover:opacity-100 transition-opacity z-20"
-              >
-                Initiate Dispatch
-              </motion.div>
-            </Link>
+              <div className="relative z-10 font-pixel text-[10px] uppercase tracking-widest font-bold group-hover:text-[#FDFBF7] transition-colors duration-300">
+                Send Message
+              </div>
+              <div className="absolute inset-0 bg-[#121212] -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out" />
+            </button>
             
             <Link 
               href="/projects" 

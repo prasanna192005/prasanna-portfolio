@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import HeroSection from "@/components/sections/HeroSection";
 import SkillsSection from "@/components/sections/SkillsSection";
 import ProjectsSection from "@/components/sections/ProjectsSection";
@@ -13,6 +14,14 @@ import ScrollChakra from "@/components/ScrollChakra";
 import ContactSectionNew from "@/components/sections/ContactSectionNew";
 
 export default function Home() {
+  useEffect(() => {
+    fetch('/api/track', { 
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ route: window.location.pathname })
+    }).catch(console.error);
+  }, []);
+
   return (
     <main className="min-h-screen w-full font-sans flex flex-col selection:bg-white selection:text-black scroll-smooth">
       <Navbar />

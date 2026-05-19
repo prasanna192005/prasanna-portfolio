@@ -1,4 +1,10 @@
 import { NextResponse } from 'next/server';
+import { Redis } from "@upstash/redis";
+
+const redis = new Redis({
+  url: process.env.UPSTASH_REDIS_REST_URL!,
+  token: process.env.UPSTASH_REDIS_REST_TOKEN!,
+});
 
 export async function POST(req: Request) {
   try {
@@ -40,6 +46,7 @@ export async function POST(req: Request) {
     });
 
     if (res.ok) {
+      await redis.incr("messages_sent");
       return NextResponse.json({ success: true });
     } else {
       const errorData = await res.json();

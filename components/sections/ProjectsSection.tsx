@@ -50,11 +50,11 @@ const ProjectsSection = () => {
           {projects.slice(0, 4).map((project, index) => {
             const bgColors = ["bg-[#C62828]", "bg-[#1565C0]", "bg-[#2E7D32]", "bg-[#F57F17]"]; // Vibrant Indian Festive Colors
             return (
-            <Link 
+            <div 
               key={project.id} 
-              href={`/projects/${project.id}`}
               className={`group relative aspect-[16/10] ${bgColors[index]} p-8 flex flex-col justify-between hover:-translate-y-1 transition-transform duration-700 overflow-hidden text-left shadow-sm hover:shadow-xl`}
             >
+              <Link href={`/projects/${project.id}`} className="absolute inset-0 z-10" aria-label={`View project ${project.title}`} />
               {/* Khadi Paper Grain Overlay */}
               <div className="grain-overlay opacity-20 pointer-events-none" />
 
@@ -143,7 +143,7 @@ const ProjectsSection = () => {
                       </a>
                     </div>
               </div>
-            </Link>
+            </div>
             );
           })}
         </div>

@@ -12,6 +12,7 @@ interface Artifact {
   desc: string;
   color: string;
   lotus: string;
+  date: string;
 }
 
 const ArtifactCard = ({ art, idx, scrollYProgress }: { art: Artifact, idx: number, scrollYProgress: MotionValue<number> }) => {
@@ -64,12 +65,23 @@ const ArtifactCard = ({ art, idx, scrollYProgress }: { art: Artifact, idx: numbe
           }}
         >
           <div className="relative w-full h-full overflow-hidden bg-gray-50">
-            <Image 
-              src={art.image} 
-              alt={art.title} 
-              fill 
-              className="object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
-            />
+            {art.image.endsWith('.mp4') ? (
+              <video 
+                src={art.image} 
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+                className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105"
+              />
+            ) : (
+              <Image 
+                src={art.image} 
+                alt={art.title} 
+                fill 
+                className="object-cover transition-all duration-1000 group-hover:scale-105"
+              />
+            )}
             
             {/* Vivid Color Overlay on Hover */}
             <div 
@@ -81,9 +93,14 @@ const ArtifactCard = ({ art, idx, scrollYProgress }: { art: Artifact, idx: numbe
           {/* Branding Overlay */}
           <div className="absolute bottom-10 left-10 right-10 z-20">
             <motion.div className="flex flex-col items-start">
-              <span className="text-8xl font-bold text-black/[0.04] mb-[-30px] ml-[-15px] pointer-events-none select-none uppercase tracking-tighter">{art.title}</span>
-              <h3 className="text-3xl font-serif text-[#121212] mb-2 tracking-tight">{art.label}</h3>
-              <p className="text-[10px] font-pixel text-black/40 tracking-[0.3em] uppercase">{art.desc}</p>
+              <span 
+                className="text-8xl font-bold mb-[-30px] ml-[-15px] pointer-events-none select-none uppercase tracking-tighter"
+                style={{ color: art.lotus, opacity: 0.05 }}
+              >
+                {art.title}
+              </span>
+              <h3 className="text-3xl font-serif text-[#BF360C] mb-2 tracking-tight">{art.label}</h3>
+              <p className="text-[10px] font-pixel text-white tracking-[0.3em] uppercase">{art.desc}</p>
               <motion.div 
                 style={{ scaleX: bloomOpacity, backgroundColor: art.lotus }}
                 className="mt-6 h-[2px] w-12 origin-left" 
@@ -96,8 +113,8 @@ const ArtifactCard = ({ art, idx, scrollYProgress }: { art: Artifact, idx: numbe
       {/* Artisan's Curated Tag */}
       <div className="mt-12 ml-4 flex items-center space-x-6">
         <div className="flex flex-col">
-          <span className="font-pixel text-[9px] text-black/30 uppercase tracking-[0.4em]">Vault Record</span>
-          <span className="font-serif text-sm text-black/50">ARC-2024-00{idx + 1}</span>
+          <span className="font-pixel text-[9px] text-black/30 uppercase tracking-[0.4em]">Date Recorded</span>
+          <span className="font-serif text-sm text-black/50">{art.date}</span>
         </div>
         <div className="w-16 h-[1px] bg-black/10" />
         <motion.div 
@@ -119,30 +136,33 @@ const ArtifactsSection = () => {
   const artifacts: Artifact[] = [
     {
       id: 1,
-      image: "/photography_artifact_1778826077528.png",
-      title: "दृष्टि",
-      label: "Visionary Lens",
-      desc: "Capturing the soul of the unseen world.",
+      image: "/GOA0.mp4",
+      title: "गोवा",
+      label: "GOA",
+      desc: "yup, I edit sometimes",
       color: "#FF8C00",
-      lotus: "#FF5722"
+      lotus: "#FF5722",
+      date: "June 2024"
     },
     {
       id: 2,
-      image: "/hackathon_artifact_1778826094434.png",
-      title: "कर्म",
-      label: "Digital Karma",
-      desc: "Building the future with relentless logic.",
+      image: "/1.mp4",
+      title: "pondi",
+      label: "Pondicherry",
+      desc: "TBSM",
       color: "#1EAB80",
-      lotus: "#00C853"
+      lotus: "#00C853",
+      date: "Jan 2025"
     },
     {
       id: 3,
-      image: "/chai_laptop_artifact_1778826113373.png",
-      title: "अमृत",
-      label: "Sacred Logic",
-      desc: "The ritual of creation in every drop.",
+      image: "/yashraj.png",
+      title: "ऑक्युलस",
+      label: "Yashraj Concert",
+      desc: "Oculus 24",
       color: "#D32F2F",
-      lotus: "#FF1744"
+      lotus: "#FF1744",
+      date: "Mar 2024"
     },
     {
       id: 4,
@@ -151,7 +171,8 @@ const ArtifactsSection = () => {
       label: "The Voyage",
       desc: "Seeking wisdom in uncharted paths.",
       color: "#01579B",
-      lotus: "#2979FF"
+      lotus: "#2979FF",
+      date: "Apr 2024"
     }
   ];
 

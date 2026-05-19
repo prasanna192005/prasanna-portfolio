@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const ContactSectionNew = () => {
@@ -13,6 +13,23 @@ const ContactSectionNew = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({ name: '', contact: '', message: '' });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  useEffect(() => {
+    const handleOpenModal = () => setIsModalOpen(true);
+    window.addEventListener('open-contact-modal', handleOpenModal);
+    
+    // Also check URL for fallback
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('contact') === 'true') {
+        setIsModalOpen(true);
+        const newUrl = window.location.pathname;
+        window.history.replaceState({}, '', newUrl);
+      }
+    }
+
+    return () => window.removeEventListener('open-contact-modal', handleOpenModal);
+  }, []);
 
   const email = "prasannapandharikar19@gmail.com";
   const phone = "+91 8468845787";

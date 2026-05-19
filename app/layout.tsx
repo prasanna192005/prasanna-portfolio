@@ -33,6 +33,21 @@ export const metadata: Metadata = {
     description: "Portfolio of Prasanna Pandharikar - Software Developer & Problem Solver. An exploration of Artisan-Tech.",
     siteName: "Prasanna Pandharikar Portfolio",
     type: "website",
+    url: "https://prasanna19.xyz", // Replace with your actual domain
+    images: [
+      {
+        url: "/profile.svg", // Using profile.png as default
+        width: 1200,
+        height: 630,
+        alt: "Prasanna Pandharikar Portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Prasanna Pandharikar | Software Developer",
+    description: "Portfolio of Prasanna Pandharikar - Software Developer & Problem Solver. An exploration of Artisan-Tech.",
+    images: ["/profile.svg"],
   },
 };
 
