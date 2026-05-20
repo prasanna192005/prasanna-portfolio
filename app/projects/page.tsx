@@ -142,7 +142,7 @@ export default function ProjectsPage() {
                             <div className="w-1.5 h-1.5 rotate-45 bg-[#FFF8E1]"></div>
                             <span className="text-[10px] font-mono text-[#FDFBF7]/70 uppercase tracking-[0.2em]">{project.category}</span>
                           </div>
-                          <p className="text-sm text-[#FDFBF7]/80 leading-relaxed max-w-xs font-serif italic">
+                          <p className="text-xs md:text-sm text-[#FDFBF7]/85 leading-relaxed max-w-xs font-sans font-light tracking-wide">
                             {project.desc}
                           </p>
                         </div>

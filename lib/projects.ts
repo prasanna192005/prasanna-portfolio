@@ -1,51 +1,115 @@
-export const projects = [
+export interface Project {
+  id: string;
+  title: string;
+  category: string;
+  year: string;
+  desc: string;
+  longDesc: string;
+  tech: string[];
+  url: string;
+  live: string | null;
+  color: string;
+  role?: string;
+  timeframe?: string;
+  demo?: string;
+  features?: string[];
+  logicDesc?: string;
+  aestheticDesc?: string;
+}
+
+export const projects: Project[] = [
   { 
     id: "01", 
     title: "ObservoAI", 
     category: "AI Observability", 
     year: "2025", 
-    desc: "AI-powered observability platform monitoring APIs across cloud and on-prem environments with ML anomaly detection.", 
-    longDesc: "ObservoAI is a sophisticated observability engine designed for the Barclays Hack-o-Hire 2025. It leverages advanced ML models like ARIMA, LSTM, and Isolation Forest for anomaly detection, while using LLMs for automated root cause analysis. Integrated with Grafana and real-time AI phone notifications.",
-    tech: ["AI", "Anomaly Detection", "API Monitoring", "Grafana", "Observability"],
-    url: "https://github.com/prasanna192005/ObservoAI-Barcalys-Hack-o-Hire-2025",
+    desc: "AI-powered API watchdog with 3-tier ML anomaly detection, log chat, and AI-driven phone alerts.", 
+    longDesc: "ObservoAI is an advanced observability and API watchdog platform built for the Barclays Hack-o-Hire 2025. It monitors distributed systems across on-prem, cloud, and multi-cloud environments, utilizing a 3-tier machine learning pipeline for anomaly detection. Re-imagining operations, it features natural language log/metric chatting, Gemini-powered root cause analysis (RCA), and automated voice-call alerts during high-priority incidents.",
+    tech: ["FastAPI", "Python", "ML Anomaly Detection", "OpenTelemetry", "Prometheus", "Tempo", "Grafana", "Next.js", "Docker"],
+    url: "https://github.com/prasanna192005/ObservoAI",
     live: null,
-    color: "#FF1F00"
+    color: "#FF1F00",
+    role: "Full-Stack & ML Architect",
+    timeframe: "Barclays Hackathon 2025",
+    demo: "https://youtu.be/v2XaY78f0vQ",
+    features: [
+      "3-Tier Anomaly Detection: Employs ARIMA for trend forecasting, LSTM for deep degradation tracking, and Isolation Forest for black-swan events.",
+      "AI Voice-Call Alerts: Automatically triggers phone calls to on-call engineers via AI voice agents when critical thresholds are crossed.",
+      "Query Logs via Chat: Ask questions about logs and metrics using natural language, converted dynamically to PromQL and TraceQL.",
+      "Root Cause Analysis (RCA): Utilizes Gemini to generate deep incident diagnostics and sends automated reports via email.",
+      "High-Frequency Bank Simulator: Simulates heavy banking transaction journeys to validate collection thresholds and stress-test pipelines."
+    ],
+    logicDesc: "The system processes high-frequency telemetry data asynchronously. The 3-tier ML models run in separate backend threads to maintain real-time evaluation with minimal latency, triggering notifications through an autonomous dialer agent.",
+    aestheticDesc: "We implemented a dark-themed observability dashboard with glowing, high-contrast status nodes and trace cards, allowing developers to spot path anomalies and critical error states immediately."
   },
   { 
     id: "02", 
-    title: "My-Buddy", 
+    title: "MyBuddy", 
     category: "EdTech AI", 
     year: "2024", 
-    desc: "AI-powered collaborative learning platform with custom test generation and LangChain RAG assistant.", 
-    longDesc: "My-Buddy transforms the collaborative learning experience by integrating a LangChain-powered RAG assistant. It features real-time note-taking, automated test generation, and personalized doubt-solving modules designed for academic excellence.",
-    tech: ["AI", "LangChain", "EdTech", "React", "Node.js"],
+    desc: "AI-powered collaborative learning ecosystem with PCM test generation and RAG chatbot.", 
+    longDesc: "MyBuddy is a smart, **collaborative learning ecosystem** designed by students, for students. It unifies high-quality study resources, real-time peer collaboration, and personalized intelligence. The platform features an **AI study assistant** utilizing __LangChain and Retrieval-Augmented Generation (RAG)__ for document interaction, a dynamic Django-powered **custom test series generator** for Physics, Chemistry, and Math, and **real-time notes synchronization**.",
+    tech: ["React.js", "Django REST API", "Node.js", "PostgreSQL", "LangChain", "RAG", "JWT"],
     url: "https://github.com/prasanna192005/My-Buddy",
     live: null,
-    color: "#0047FF"
+    color: "#0047FF",
+    role: "Full-Stack & AI Engineer",
+    timeframe: "3 Month Academic Sprint",
+    features: [
+      "Custom PCM Test Generator: Generate personalized, multi-subject tests in Physics, Chemistry, and Math with smart scoring analytics.",
+      "LangChain + RAG Assistant: 24/7 doubt solving chatbot capable of ingesting and answering queries across multiple PDFs simultaneously.",
+      "Collaborative Rich Notes: Write and format study documents live with peers in real time, supporting PDF and image embeds.",
+      "Instant Messaging Network: Connect with friends via structured channels to share notes, ideas, and revision questions.",
+      "Smart To-Do Planner: A secure, prioritizable checklist to organize assignments, exam schedules, and revision targets."
+    ],
+    logicDesc: "The platform divides operations between a Django REST API coordinating PostgreSQL database states and test generation logic, and a Node.js socket server handling real-time notes synchronization. The AI pipeline is powered by a RAG engine that embeds and retrieves custom document contexts locally.",
+    aestheticDesc: "Features a modern, high-legibility layout utilizing clean blueprint grid aesthetics. Highly interactive modules—like the shared notes space and real-time chat drawers—are framed neatly to sustain user focus during prolonged study sessions."
   },
   { 
     id: "03", 
-    title: "Project Akshar", 
-    category: "High-Performance Web", 
+    title: "AKSHAR", 
+    category: "Tactical Multiplayer System", 
     year: "2024", 
-    desc: "A high-performance typing game platform designed for competitive practice and skill building.", 
-    longDesc: "Project Akshar is a minimalist, high-speed typing environment built with Framer Motion for buttery-smooth interactions. It focuses on the intersection of aesthetic precision and mechanical efficiency, providing real-time telemetry for competitive typists.",
-    tech: ["TypeScript", "React", "Framer Motion", "TailwindCSS"],
+    desc: "Tactical multiplayer typing battle engine with sub-100ms Firebase synchronization and custom ability payloads.", 
+    longDesc: "AKSHAR (अक्षर — The Imperishable / The Letter) is a high-performance, **real-time typing engine** built on a __distributed state machine__. It transforms mechanical typing into a **high-stakes, tactical hero-racer**. The system coordinates **sub-100ms synchronization** across players, handles transient player ability payloads (blurs, scrambles, redactions) via **atomic database transactions**, compiles lightweight **SVG telemetry charts**, and implements **schema.org semantic schemas** alongside an __LLM crawler manifest (/llms.txt)__ for maximum AI/LLM discoverability.",
+    tech: ["Next.js", "Firebase", "TypeScript", "TailwindCSS", "Framer Motion", "LLM Optimization"],
     url: "https://github.com/prasanna192005/project-akshar",
     live: "https://akshar19.vercel.app",
-    color: "#FFD700"
+    color: "#FFD700",
+    role: "Lead Systems & Gameplay Architect",
+    timeframe: "Operational Release (2024)",
+    features: [
+      "Optimistic Distributed Sync: Sub-100ms reactive state synchronization leveraging local 60fps loops and server-stamped conflict resolution.",
+      "Transient State Ability Payloads: Deploy tactical counters (Vayu warp, Agni blur, Sutra shield, Yantra freeze) resolved through atomic database transactions.",
+      "Forensic Ref-Driven Telemetry: Achieves seamless performance rendering by bypass-updating DOM nodes with React Refs and scalable SVG coordinate polyline mapping.",
+      "Phased Devanagari Scrambler: Decrypts inputs dynamically through a seeded randomizer transitioning character arrays across Latin, Cyrillic, and Sanskrit scripts.",
+      "Tactical Progression Engine: Active loops rewarding players with daily combat operations, compound leveling XP, and a custom currency system.",
+      "Generative Engine Optimization (GEO): Optimized for AI crawlers with structured JSON-LD schemas and dedicated /llms.txt technical brief manifests."
+    ],
+    logicDesc: "Operates on a dual-loop framework: local typing hooks track keypresses in memory to ensure zero telemetry delay, while room handlers synchronize state variables asynchronously to Firebase. Abilities write atomic payload logs that client-side overlays automatically decay and clear via timed triggers.",
+    aestheticDesc: "Fuses a rugged military command-console design with elegant Devanagari Sanskrit motifs. Interactive typing zones use stark, high-contrast layouts, with high-frequency telemetry alerts and screen-scrambling overlays mimicking tactical system disruptions."
   },
   { 
     id: "04", 
     title: "Seedhe CMD", 
     category: "CLI Systems", 
     year: "2024", 
-    desc: "AI-powered CLI tool providing instant cheatsheets and command suggestions via Gemini API.", 
-    longDesc: "Seedhe CMD is a developer-centric CLI utility that streamlines terminal workflows. By integrating the Gemini API, it provides intelligent command suggestions for Git, Docker, and Linux directly within the shell environment, acting as a local technical companion.",
-    tech: ["Node.js", "Gemini API", "CLI", "Shell Scripting"],
+    desc: "A terminal-native AI cheatsheet built because switching tabs to search StackOverflow is Seedhe Maut to developer flow.", 
+    longDesc: "Designed for **keyboard purists** who value raw execution speed, Seedhe CMD brings **rapid-fire commands** and in-terminal __Gemini-powered guidance__ straight to your shell. It eliminates the friction of opening a browser to find a forgotten Git flag, acting like a high-octane rap flow for your dev environment. It is the ultimate **'Bina faltu bakwaas, Seedhe kaam'** CLI companion for command-line navigation—engineered as a native shell utility long __before modern IDEs__ integrated built-in AI chat panels.",
+    tech: ["Node.js", "Gemini API", "CLI", "Developer Tooling"],
     url: "https://github.com/prasanna192005/seedhe-cmd",
     live: null,
-    color: "#121212"
+    color: "#E65100",
+    role: "Lead CLI Architect",
+    timeframe: "Operational Release (2024)",
+    features: [
+      "Seedhe Maut Flow / Cheatsheets: Instantaneous, terminal-native cheatsheets for Git, Docker, Linux, React, and Node.js. No scroll, no delay—just straight, clean flags when you need them.",
+      "Gemini AI Command Guidance: Tap into 'seedhe chat' to spin up a Google Gemini API guide right in your CLI. Resolve command breakdowns and debug error stacks without context switching.",
+      "Zero-Setup Global Execution: A single global npm install ('npm install -g seedhe-cmd') that links into your system path for lightweight, zero-dependency executions anytime.",
+      "Legacy Terminal Pre-empt: Engineered before modern IDEs had native chat panels, proving that terminal-first utility remains the purest way to code."
+    ],
+    logicDesc: "Constructed with Node.js and powered by direct HTTP calls to the Google Gemini API. It resolves conversational terminal queries asynchronously and formats code blocks natively using CLI rendering buffers.",
+    aestheticDesc: "Presents a retro terminal command design, relying on simple monospaced block highlights, bold ANSI color escapes, and clean CLI menu highlights that feel native to any developer environment."
   },
   { 
     id: "05", 
@@ -57,18 +121,39 @@ export const projects = [
     tech: ["TypeScript", "Next.js", "Vercel", "Security"],
     url: "https://github.com/prasanna192005/anchor19",
     live: "https://anchor19.vercel.app",
-    color: "#4DD3B0"
+    color: "#4DD3B0",
+    role: "Lead Systems Engineer",
+    timeframe: "4 Month Sprint",
+    features: [
+      "Consolidated API Management: Single dashboard to coordinate developer credentials across active project nodes.",
+      "Secure Identity Shielding: Hardened auth flows leveraging Vercel Edge configuration protocols.",
+      "Telemetry HUD: Minimalist dashboard displaying node status and operational stats with low latency."
+    ],
+    logicDesc: "Employs modern Next.js route handlers and serverless deployment targets, using encrypted storage tokens to enforce secure, zero-trust API management.",
+    aestheticDesc: "Applies a rich dark developer console interface with neon-green active status trackers and clean borders, capturing a high-tech control system look."
   },
   { 
     id: "06", 
-    title: "Pulse Polls", 
+    title: "Pulse", 
     category: "Real-time Systems", 
     year: "2024", 
-    desc: "Real-time, anonymous polling platform with no participant limits or paywalls.", 
-    longDesc: "Pulse is a high-concurrency polling engine built with Next.js and Firebase. It enables instantaneous, anonymous feedback for large-scale events and classrooms, featuring a low-latency sync architecture that handles unlimited participants with ease.",
-    tech: ["TypeScript", "Firebase", "Next.js", "Real-time"],
+    desc: "A completely FREE, low-latency live polling alternative to expensive paid tools like Slido, Mentimeter, and Poll Everywhere.", 
+    longDesc: "Pulse is a **low-latency, zero-auth live polling engine** built because charging a __$50/month subscription__ to sync a few JSON payloads in a silent conference room is **absolute highway robbery**. Under the hood, Pulse orchestrates live session state and response aggregates using __Firebase Realtime Database’s native websocket listeners__, keeping presenters and participants in lockstep with **sub-100ms state updates**. The presenter canvas boasts dynamically scaling, art-directed layouts that continuously recalculate viewport aspect ratios, coupled with a client-side **vector-to-raster engine** for one-click high-res PNG slide exports.",
+    tech: ["Next.js 16", "Tailwind CSS 4", "Firebase RTDB", "Firebase Auth", "Lucide Icons"],
     url: "https://github.com/prasanna192005/Pulse-free-ppt-polls",
     live: "https://pulse19.vercel.app",
-    color: "#B0B8FF"
+    color: "#B0B8FF",
+    role: "Lead Product & Systems Engineer",
+    timeframe: "Product Release (2024)",
+    features: [
+      "Sub-100ms Reactive State Synchronization: Powered by Firebase Realtime Database, Pulse utilizes active client-side subscriptions to push question states, live response metrics, and active session heartbeats with near-zero latency, completely bypassing the overhead of REST polling.",
+      "Zero-Account Ephemeral Identity Mapping: A friction-free participant entry system that pairs styled, responsive, focus-reactive character boxes with a hidden input handler, generating transient client hashes to map anonymous responses without ever touching a database user profile table.",
+      "Aspect-Locked Fluid Canvas Engine: A presentation viewport scaling engine that continuously calculates 16:9 container aspect ratios during window resize events, preventing clipping or text distortion across massive projector screens while serving layouts that feel like premium editorial design.",
+      "Client-Side Vector-to-Raster Compilation: Integrates html-to-image to serialize active DOM nodes into high-resolution PNG data URLs directly in the browser, enabling immediate branded slide exports for PowerPoint without spinning up expensive, slow headless browsers on the backend."
+    ],
+    logicDesc: "Orchestrates live session state and response aggregates using Firebase Realtime Database’s native websocket listeners for sub-100ms updates. Leverages local-storage hashes linked directly to a responsive OTP-style code entry system to authenticate anonymous votes without user tables.",
+    aestheticDesc: "Uses a stark, high-contrast presenter screen optimized for projector scale. Features dynamic 16:9 viewport calculation handlers to lock layouts during window resizes, paired with client-side DOM-to-raster PNG compilation to download slide graphics on the fly."
   },
 ];
+
+

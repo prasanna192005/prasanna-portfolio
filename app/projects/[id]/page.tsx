@@ -4,6 +4,33 @@ import Navbar from "@/components/Navbar";
 import { notFound } from "next/navigation";
 import DynamicBackButton from "@/components/DynamicBackButton";
 
+function renderHighlightedText(text: string) {
+  if (!text) return "";
+  
+  const boldParts = text.split(/\*\*([^*]+)\*\*/g);
+  
+  return boldParts.map((boldPart, idx) => {
+    if (idx % 2 === 1) {
+      return <strong key={`b-${idx}`} className="font-semibold text-[#121212]">{boldPart}</strong>;
+    }
+    
+    const underlineParts = boldPart.split(/__([^_]+)__/g);
+    return underlineParts.map((part, uIdx) => {
+      if (uIdx % 2 === 1) {
+        return (
+          <span 
+            key={`u-${idx}-${uIdx}`} 
+            className="underline decoration-[#FF1F00]/40 decoration-2 underline-offset-4 font-semibold text-black"
+          >
+            {part}
+          </span>
+        );
+      }
+      return part;
+    });
+  });
+}
+
 export async function generateStaticParams() {
   return projects.map((project) => ({
     id: project.id,
@@ -93,20 +120,64 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
                   <span className="text-[10px] font-pixel text-white/60 uppercase tracking-widest">{project.category}</span>
                 </div>
               </div>
-              <h1 className="text-5xl md:text-9xl font-serif tracking-tight flex items-center justify-center gap-4">
-                {project.title.split(' ')[0]} <span className="font-helvetica font-bold uppercase text-3xl md:text-7xl mt-1 md:mt-4 text-white/90">{project.title.split(' ').slice(1).join(' ')}</span>
+              <h1 className="text-5xl md:text-9xl font-serif tracking-tight flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4">
+                <span>{project.title.split(' ')[0]}</span>
+                {project.title.split(' ').slice(1).length > 0 && (
+                  <span className="font-helvetica font-bold uppercase text-3xl md:text-7xl mt-1 md:mt-4 text-white/90">
+                    {project.title.split(' ').slice(1).join(' ')}
+                  </span>
+                )}
               </h1>
+
+              {/* Top Header Action Links */}
+              <div className="flex flex-wrap items-center justify-center gap-4 mt-2">
+                {project.url && (
+                  <Link 
+                    href={project.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="flex items-center space-x-2 border border-white/20 px-5 py-2.5 rounded-sm text-[10px] font-pixel uppercase tracking-widest hover:bg-white hover:text-black transition-all"
+                  >
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7a3.37 3.37 0 0 0-.94 2.58V22"></path></svg>
+                    <span>Repository</span>
+                  </Link>
+                )}
+                {project.demo && (
+                  <Link 
+                    href={project.demo} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="flex items-center space-x-2 border border-white/20 px-5 py-2.5 rounded-sm text-[10px] font-pixel uppercase tracking-widest hover:bg-white hover:text-black transition-all"
+                  >
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polygon points="5 3 19 12 5 21 5 3" fill="currentColor"></polygon>
+                    </svg>
+                    <span>Watch Demo</span>
+                  </Link>
+                )}
+                {project.live && (
+                  <Link 
+                    href={project.live} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="flex items-center space-x-2 border border-white/20 px-5 py-2.5 rounded-sm text-[10px] font-pixel uppercase tracking-widest hover:bg-white hover:text-black transition-all"
+                  >
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"></path></svg>
+                    <span>Live Site</span>
+                  </Link>
+                )}
+              </div>
             </div>
 
             {/* Technical Metadata Bar (White theme) */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-32 pt-12 border-t border-white/20 relative z-10 w-full text-left">
               <div>
                 <span className="block text-[10px] font-pixel text-white/60 uppercase tracking-[0.3em] mb-4">Architecture</span>
-                <span className="text-sm font-bold uppercase tracking-tight">Lead Engineering</span>
+                <span className="text-sm font-bold uppercase tracking-tight">{project.role || "Lead Engineering"}</span>
               </div>
               <div>
                 <span className="block text-[10px] font-pixel text-white/60 uppercase tracking-[0.3em] mb-4">Timeframe</span>
-                <span className="text-sm font-bold uppercase tracking-tight">6 Month Sprint</span>
+                <span className="text-sm font-bold uppercase tracking-tight">{project.timeframe || "6 Month Sprint"}</span>
               </div>
               <div>
                 <span className="block text-[10px] font-pixel text-white/60 uppercase tracking-[0.3em] mb-4">Core Stack</span>
@@ -141,11 +212,11 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
                   <circle cx="50" cy="50" r="15" fill="white" />
                   <circle cx="50" cy="50" r="5" fill="currentColor" />
                </svg>
-               <h2 className="text-3xl md:text-5xl font-serif tracking-tight uppercase">System <span className="font-helvetica font-bold text-[#FF1F00]">Anatomy</span></h2>
+               <h2 className="text-3xl md:text-5xl font-serif tracking-tight uppercase">Technical <span className="font-helvetica font-bold text-[#FF1F00]">Breakdown</span></h2>
             </div>
             
-            <p className="text-xl md:text-4xl font-serif italic leading-snug mb-20 opacity-90 tracking-tight">
-              {project.longDesc}
+            <p className="text-lg md:text-2xl font-sans leading-relaxed text-[#121212]/80 mb-20 tracking-wide font-normal">
+              {renderHighlightedText(project.longDesc)}
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-24 border-t border-black/10 pt-16">
@@ -154,8 +225,8 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
                   <div className="w-8 h-[1px] bg-[#FF1F00]"></div>
                   <h3 className="font-pixel text-[10px] text-[#FF1F00] uppercase tracking-[0.4em]">Engineering Logic</h3>
                 </div>
-                <p className="text-base opacity-70 leading-relaxed font-serif">
-                  The system was built with a focus on mathematical precision and high-concurrency stability. Every module follows a strict functional paradigm to ensure zero-latency performance in mission-critical environments.
+                <p className="text-base opacity-70 leading-relaxed font-sans">
+                  {renderHighlightedText(project.logicDesc || "The system was built with a focus on mathematical precision and high-concurrency stability. Every module follows a strict functional paradigm to ensure zero-latency performance in mission-critical environments.")}
                 </p>
               </div>
               <div className="space-y-8">
@@ -163,27 +234,70 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
                   <div className="w-8 h-[1px] bg-[#FF1F00]"></div>
                   <h3 className="font-pixel text-[10px] text-[#FF1F00] uppercase tracking-[0.4em]">Aesthetic Precision</h3>
                 </div>
-                <p className="text-base opacity-70 leading-relaxed font-serif">
-                  We integrated heritage motifs like the Jaali lattice as functional background textures, blending ancient symmetry with modern digital interfaces to create a unique "Technical-Indian" soul.
+                <p className="text-base opacity-70 leading-relaxed font-sans">
+                  {renderHighlightedText(project.aestheticDesc || "We integrated heritage motifs like the Jaali lattice as functional background textures, blending ancient symmetry with modern digital interfaces to create a unique \"Technical-Indian\" soul.")}
                 </p>
               </div>
             </div>
 
+
+            {/* Dynamic Features List */}
+            {project.features && project.features.length > 0 && (
+              <div className="mt-24 border-t border-black/10 pt-16 space-y-12">
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-[1px] bg-[#FF1F00]"></div>
+                  <h3 className="font-pixel text-[10px] text-[#FF1F00] uppercase tracking-[0.4em]">Technical Features & Superpowers</h3>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {project.features.map((feature, idx) => {
+                    const colonIndex = feature.indexOf(":");
+                    if (colonIndex !== -1) {
+                      const title = feature.substring(0, colonIndex);
+                      const body = feature.substring(colonIndex + 1);
+                      return (
+                        <div key={idx} className="flex gap-4 items-start p-6 bg-[#FDFBF7] border border-black/[0.05] rounded-sm hover:border-[#FF1F00]/20 transition-all duration-300">
+                          <span className="font-mono text-xs text-[#FF1F00] font-bold">[{String(idx + 1).padStart(2, '0')}]</span>
+                          <p className="text-sm font-sans leading-relaxed text-[#121212]/80">
+                            <strong className="text-[#121212] font-semibold underline decoration-[#FF1F00]/30 underline-offset-4">{title}</strong>: {renderHighlightedText(body)}
+                          </p>
+                        </div>
+                      );
+                    }
+                    return (
+                      <div key={idx} className="flex gap-4 items-start p-6 bg-[#FDFBF7] border border-black/[0.05] rounded-sm hover:border-[#FF1F00]/20 transition-all duration-300">
+                        <span className="font-mono text-xs text-[#FF1F00] font-bold">[{String(idx + 1).padStart(2, '0')}]</span>
+                        <p className="text-sm font-sans leading-relaxed text-[#121212]/80">{renderHighlightedText(feature)}</p>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
             {/* External Links */}
             <div className="mt-32 flex flex-wrap gap-8">
               {project.url && (
-                <Link href={project.url} className="group flex items-center space-x-4 border border-black/10 px-8 py-4 rounded-sm hover:bg-black hover:text-white transition-all">
+                <Link href={project.url} target="_blank" rel="noopener noreferrer" className="group flex items-center space-x-4 border border-black/10 px-8 py-4 rounded-sm hover:bg-black hover:text-white transition-all">
                   <span className="text-[11px] font-pixel uppercase tracking-widest">Source Repository</span>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7a3.37 3.37 0 0 0-.94 2.58V22"></path></svg>
                 </Link>
               )}
+              {project.demo && (
+                <Link href={project.demo} target="_blank" rel="noopener noreferrer" className="group flex items-center space-x-4 border border-[#FF1F00] px-8 py-4 rounded-sm bg-[#FF1F00]/5 text-[#FF1F00] hover:bg-[#FF1F00] hover:text-white transition-all shadow-sm">
+                  <span className="text-[11px] font-pixel uppercase tracking-widest">Watch Demo Video</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polygon points="5 3 19 12 5 21 5 3" fill="currentColor"></polygon>
+                  </svg>
+                </Link>
+              )}
               {project.live && (
-                <Link href={project.live} className={`group flex items-center space-x-4 ${bgColor} text-white px-8 py-4 rounded-sm hover:translate-y-[-4px] transition-all shadow-lg`}>
+                <Link href={project.live} target="_blank" rel="noopener noreferrer" className={`group flex items-center space-x-4 ${bgColor} text-white px-8 py-4 rounded-sm hover:translate-y-[-4px] transition-all shadow-lg`}>
                   <span className="text-[11px] font-pixel uppercase tracking-widest">Live Deployment</span>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"></path></svg>
                 </Link>
               )}
             </div>
+
           </div>
         </section>
 
