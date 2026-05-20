@@ -58,7 +58,7 @@ export default function ResumePage() {
       opacity: 1,
       y: 0,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 110,
         damping: 15,
       },
@@ -194,13 +194,13 @@ export default function ResumePage() {
       <main className="pt-36 px-4 md:px-12 flex flex-col items-center print-p-0">
         
         {/* Floating Action Controls */}
-        <div className="max-w-[820px] w-full flex justify-between items-center mb-6 print-hidden">
+        <div className="max-w-205 w-full flex justify-between items-center mb-6 print-hidden">
           <div className="flex items-center space-x-3">
             <Link 
               href="/"
               className="group flex items-center space-x-2 text-xs font-pixel uppercase tracking-widest text-[#121212]/60 hover:text-[#FF1F00] transition-colors"
             >
-              <svg viewBox="0 0 24 24" className="w-4 h-4 stroke-current fill-none stroke-[2]">
+              <svg viewBox="0 0 24 24" className="w-4 h-4 stroke-current fill-none stroke-2">
                 <path d="M19 12H5M12 19l-7-7 7-7" />
               </svg>
               <span>Back</span>
@@ -215,7 +215,7 @@ export default function ResumePage() {
             download="Prasanna-Pandharikar-Resume.pdf"
             className="group relative px-6 py-2 bg-[#BF360C] text-[#FDFBF7] border border-[#BF360C] flex items-center space-x-2 transition-all duration-300 shadow-md hover:shadow-lg hover:bg-black hover:border-black cursor-pointer"
           >
-            <svg viewBox="0 0 24 24" className="w-4 h-4 stroke-current fill-none stroke-[2] group-hover:scale-110 transition-transform">
+            <svg viewBox="0 0 24 24" className="w-4 h-4 stroke-current fill-none stroke-2 group-hover:scale-110 transition-transform">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
               <polyline points="7 10 12 15 17 10" />
               <line x1="12" y1="15" x2="12" y2="3" />
@@ -229,7 +229,7 @@ export default function ResumePage() {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="jakes-serif max-w-[820px] w-full bg-white shadow-2xl p-12 md:p-14 print-shadow-none print-border-none print-p-0 print-w-full min-h-[1050px] flex flex-col justify-between text-black text-[13px] leading-relaxed"
+            className="jakes-serif max-w-205 w-full bg-white shadow-2xl p-12 md:p-14 print-shadow-none print-border-none print-p-0 print-w-full min-h-262.5 flex flex-col justify-between text-black text-[13px] leading-relaxed"
         >
           <div>
             {/* Heading Section */}
