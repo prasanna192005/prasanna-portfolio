@@ -25,18 +25,33 @@ const pixelFont = Silkscreen({
 });
 
 export const metadata: Metadata = {
-  title: "Prasanna Pandharikar | Software Developer",
-  description: "Portfolio of Prasanna Pandharikar - Software Developer & Problem Solver. An exploration of Artisan-Tech, blending Sanskriti and Vigyanam.",
-  keywords: ["Software Developer", "Frontend Engineer", "Portfolio", "Prasanna Pandharikar", "Creative Developer", "Artisan-Tech"],
+  title: "Prasanna Pandharikar | Software Developer Portfolio",
+  description: "Explore Prasanna Pandharikar's software engineering portfolio, showcasing high-concurrency multiplayer typing games, AI observability watchdogs, and low-latency command consoles.",
+  keywords: [
+    "Prasanna Pandharikar Portfolio",
+    "Prasanna Pandharikar",
+    "Prasanna Pandharikar resume",
+    "Prasanna",
+    "Pandharikar",
+    "Software Developer",
+    "Frontend Engineer",
+    "Creative Developer",
+    "Problem Solver",
+    "Sardar Patel Institute of Technology",
+    "edept"
+  ],
+  alternates: {
+    canonical: "https://prasanna19.xyz",
+  },
   openGraph: {
-    title: "Prasanna Pandharikar | Software Developer",
-    description: "Portfolio of Prasanna Pandharikar - Software Developer & Problem Solver. An exploration of Artisan-Tech.",
+    title: "Prasanna Pandharikar | Software Developer Portfolio",
+    description: "Explore Prasanna Pandharikar's software engineering portfolio, showcasing high-concurrency multiplayer typing games, AI observability watchdogs, and low-latency command consoles.",
     siteName: "Prasanna Pandharikar Portfolio",
     type: "website",
-    url: "https://prasanna19.xyz", // Replace with your actual domain
+    url: "https://prasanna19.xyz",
     images: [
       {
-        url: "/profile.svg", // Using profile.png as default
+        url: "/profile.svg",
         width: 1200,
         height: 630,
         alt: "Prasanna Pandharikar Portfolio",
@@ -45,8 +60,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Prasanna Pandharikar | Software Developer",
-    description: "Portfolio of Prasanna Pandharikar - Software Developer & Problem Solver. An exploration of Artisan-Tech.",
+    title: "Prasanna Pandharikar | Software Developer Portfolio",
+    description: "Explore Prasanna Pandharikar's software engineering portfolio, showcasing high-concurrency multiplayer typing games, AI observability watchdogs, and low-latency command consoles.",
     images: ["/profile.svg"],
   },
 };
@@ -64,6 +79,27 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${pixelFont.variable} ${instrumentSerif.variable} scroll-smooth h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Prasanna Pandharikar",
+              "url": "https://prasanna19.xyz",
+              "jobTitle": "Software Developer",
+              "alumniOf": {
+                "@type": "CollegeOrUniversity",
+                "name": "Sardar Patel Institute of Technology"
+              },
+              "sameAs": [
+                "https://github.com/prasanna192005",
+                "https://linkedin.com/in/prasanna-pandharikar"
+              ],
+              "description": "Portfolio of Prasanna Pandharikar - Software Developer & Problem Solver. Specializing in high-concurrency multiplayer applications, low-latency architectures, and AI systems."
+            }),
+          }}
+        />
         <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
