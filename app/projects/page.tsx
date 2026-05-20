@@ -40,41 +40,53 @@ export default function ProjectsPage() {
       {/* Corner Brackets (kept subtle) */}
       <div className="fixed top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#FF1F00]/20 to-transparent z-[70]" />
       
-      <main className="pt-48 pb-32 px-12 md:px-24 flex flex-col items-center relative z-0">
-        {/* Background Mandala Watermark */}
-        <div className="absolute top-40 left-1/2 -translate-x-1/2 w-[300px] h-[300px] md:w-[600px] md:h-[600px] opacity-[0.03] pointer-events-none">
-          <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-black stroke-[0.2]">
-            <circle cx="50" cy="50" r="45" />
-            <circle cx="50" cy="50" r="40" strokeDasharray="1 2" />
-            {[...Array(12)].map((_, i) => (
-              <path key={i} d="M50 10 Q60 30 50 50 Q40 30 50 10" transform={`rotate(${i * 30} 50 50)`} />
-            ))}
-          </svg>
-        </div>
+      <main className="pt-48 pb-32 px-12 md:px-24 flex flex-col items-center relative z-0 overflow-hidden">
+        {/* Subtle Background Pattern (Jaali Lattice Grid) */}
+        <div className="absolute inset-0 opacity-[0.05] pointer-events-none jaali-grid scale-150 grayscale invert"></div>
 
         <div className="max-w-5xl w-full relative">
           {/* Header */}
-          <div className="mb-24 flex flex-col items-center text-center">
+          <div className="mb-24 flex flex-col items-center text-center relative py-12">
+            {/* Mandala Watermark Behind Heading (Centered & Spinning) */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] md:w-[650px] md:h-[650px] opacity-[0.04] pointer-events-none">
+              <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-black stroke-[0.2] animate-[spin_180s_linear_infinite]">
+                <circle cx="50" cy="50" r="45" />
+                <circle cx="50" cy="50" r="40" strokeDasharray="1 2" />
+                {[...Array(12)].map((_, i) => (
+                  <path key={i} d="M50 10 Q60 30 50 50 Q40 30 50 10" transform={`rotate(${i * 30} 50 50)`} />
+                ))}
+                <circle cx="50" cy="50" r="10" />
+              </svg>
+            </div>
+
             <div className="flex items-center justify-center space-x-4 mb-6 relative z-10">
               <div className="w-12 h-px bg-gradient-to-r from-transparent to-[#FF1F00]"></div>
-              <svg width="16" height="16" viewBox="0 0 100 100" className="fill-none stroke-[#FF1F00] stroke-[4]">
+              <svg width="16" height="16" viewBox="0 0 100 100" className="fill-none stroke-[#FF1F00] stroke-[4] animate-[spin_10s_linear_infinite]">
                 <path d="M50 10 L90 50 L50 90 L10 50 Z" />
                 <circle cx="50" cy="50" r="15" />
               </svg>
               <div className="w-12 h-px bg-gradient-to-l from-transparent to-[#FF1F00]"></div>
             </div>
             
-            <span className="font-pixel text-[10px] text-black/40 uppercase tracking-[0.5em] mb-4 block">System_Node / 02</span>
-            <h1 className="text-4xl md:text-7xl font-serif tracking-tight text-[#121212] flex items-center justify-center gap-4">
+            <span className="font-pixel text-[10px] text-black/40 uppercase tracking-[0.5em] mb-4 block relative z-10">System_Node / 02</span>
+            <h1 className="text-4xl md:text-7xl font-serif tracking-tight text-[#121212] relative z-10 flex items-center justify-center gap-4">
               Project <span className="font-helvetica font-bold uppercase text-2xl md:text-5xl text-[#FF1F00] mt-1 md:mt-2">Index</span>
             </h1>
           </div>
 
           {/* Projects Grid (Royal Manuscript Cards) */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-            {projects.map((project, index) => {
-              const bgColors = ["bg-[#C62828]", "bg-[#1565C0]", "bg-[#2E7D32]", "bg-[#F57F17]"];
-              const bgColor = bgColors[index % bgColors.length];
+            {projects.map((project) => {
+              const cardColors: Record<string, string> = {
+                "01": "bg-[#C62828]",
+                "02": "bg-[#1565C0]",
+                "03": "bg-[#2E7D32]",
+                "04": "bg-[#F57F17]",
+                "05": "bg-[#00796B]",
+                "06": "bg-[#3F51B5]",
+                "07": "bg-[#7B1FA2]",
+              };
+              const bgColor = cardColors[project.id] || "bg-[#C62828]";
               
               return (
                 <TiltCard key={project.id}>
@@ -114,6 +126,14 @@ export default function ProjectsPage() {
                         <line x1="10" y1="0" x2="10" y2="40" strokeWidth="0.5" strokeDasharray="2 2" />
                         <path d="M2 40 Q10 55 18 40 Z" className="fill-[#FFF8E1]/60 group-hover:fill-[#FFF8E1]" stroke="none" />
                         <circle cx="10" cy="58" r="1" className="fill-[#FFF8E1]" stroke="none" />
+                      </svg>
+
+                      {/* Faint Center Watermark */}
+                      <svg viewBox="0 0 100 100" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 opacity-[0.05] group-hover:opacity-[0.15] group-hover:rotate-45 transition-all duration-1000 fill-none stroke-[#FFF8E1] stroke-[0.5]">
+                        <circle cx="50" cy="50" r="40" strokeDasharray="2 2" />
+                        {[...Array(12)].map((_, i) => (
+                          <path key={i} d="M50 10 Q65 30 50 50 Q35 30 50 10" transform={`rotate(${i * 30} 50 50)`} />
+                        ))}
                       </svg>
                     </div>
 

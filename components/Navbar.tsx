@@ -15,7 +15,7 @@ const Navbar = () => {
         className="relative group"
       >
         {/* The Patrika Frame (Manuscript Style) */}
-        <div className="relative bg-[#FDFBF7] border border-[#BF360C]/30 px-8 py-3 shadow-[0_15px_40px_rgba(191,54,12,0.1)] overflow-hidden">
+        <div className="relative bg-[#FDFBF7] border border-[#BF360C]/30 px-6 py-2 shadow-[0_15px_40px_rgba(191,54,12,0.1)] overflow-hidden">
           {/* Khadi Grain Overlay */}
           <div className="grain-overlay opacity-20 pointer-events-none" />
 
@@ -34,10 +34,10 @@ const Navbar = () => {
           </svg>
 
           {/* Navigation Links */}
-          <nav className="flex items-center space-x-10 relative z-10">
+          <nav className="flex items-center space-x-6 relative z-10">
             {/* Logo Seal */}
-            <Link href="/" className="flex items-center group/logo pr-4 border-r border-[#BF360C]/10">
-              <svg viewBox="0 0 100 100" className="w-6 h-6 fill-[#BF360C] group-hover/logo:rotate-90 transition-transform duration-700">
+            <Link href="/" className="flex items-center group/logo pr-3 border-r border-[#BF360C]/10">
+              <svg viewBox="0 0 100 100" className="w-5 h-5 fill-[#BF360C] group-hover/logo:rotate-90 transition-transform duration-700">
                 {[...Array(8)].map((_, i) => (
                   <path key={i} d="M50 50 Q65 20 50 0 Q35 20 50 50" transform={`rotate(${i * 45} 50 50)`} />
                 ))}
@@ -46,7 +46,7 @@ const Navbar = () => {
               </svg>
             </Link>
 
-            <div className="flex items-center space-x-8 text-[10px] font-pixel uppercase tracking-[0.3em] text-[#121212]/60">
+            <div className="flex items-center space-x-5 text-[9px] font-pixel uppercase tracking-[0.25em] text-[#121212]/60">
               {[
                 { name: "Projects", path: "/#projects" },
                 { name: "Design", path: "/design" },
@@ -60,8 +60,8 @@ const Navbar = () => {
                 >
                   {item.name}
                   {/* Subtle Flower Bindi on Hover/Active */}
-                  <div className={`absolute -bottom-4 left-1/2 -translate-x-1/2 transition-all duration-300 ${pathname === item.path ? 'opacity-100' : 'opacity-0 group-hover/link:opacity-40'}`}>
-                    <svg viewBox="0 0 100 100" className="w-3 h-3 fill-[#BF360C]">
+                  <div className={`absolute -bottom-3 left-1/2 -translate-x-1/2 transition-all duration-300 ${pathname === item.path ? 'opacity-100' : 'opacity-0 group-hover/link:opacity-40'}`}>
+                    <svg viewBox="0 0 100 100" className="w-2.5 h-2.5 fill-[#BF360C]">
                       {[...Array(6)].map((_, i) => (
                         <path key={i} d="M50 50 Q60 30 50 15 Q40 30 50 50" transform={`rotate(${i * 60} 50 50)`} />
                       ))}
@@ -72,19 +72,18 @@ const Navbar = () => {
             </div>
 
             <Link 
-              href="/resume.pdf" 
-              target="_blank"
-              className="ml-4 font-serif italic text-sm text-[#BF360C] hover:text-[#FF1F00] transition-colors border-l border-[#BF360C]/10 pl-8 relative group/res"
+              href="/resume" 
+              className="ml-1 font-serif italic text-xs text-[#BF360C] hover:text-[#FF1F00] transition-colors border-l border-[#BF360C]/10 pl-5 relative group/res"
             >
               Resume
-              <div className="absolute left-6 top-1/2 -translate-y-1/2 w-1 h-1 bg-[#BF360C] rotate-45 group-hover/res:scale-150 transition-transform"></div>
+              <div className="absolute left-3 top-1/2 -translate-y-1/2 w-1 h-1 bg-[#BF360C] rotate-45 group-hover/res:scale-150 transition-transform"></div>
             </Link>
           </nav>
         </div>
 
         {/* Floating Decorative Marigold Tassels (Visual Flair) */}
-        <div className="absolute -bottom-2 left-10 w-2 h-2 rounded-full bg-[#FFB300] opacity-40 shadow-sm animate-pulse"></div>
-        <div className="absolute -bottom-3 right-16 w-1.5 h-1.5 rounded-full bg-[#BF360C] opacity-40 shadow-sm animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute -bottom-1.5 left-8 w-1.5 h-1.5 rounded-full bg-[#FFB300] opacity-40 shadow-sm animate-pulse"></div>
+        <div className="absolute -bottom-2 right-12 w-1 h-1 rounded-full bg-[#BF360C] opacity-40 shadow-sm animate-pulse" style={{ animationDelay: '1s' }}></div>
       </motion.header>
     </div>
   );

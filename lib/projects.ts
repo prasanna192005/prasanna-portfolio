@@ -114,23 +114,25 @@ export const projects: Project[] = [
   { 
     id: "05", 
     title: "Anchor19", 
-    category: "Auth Infrastructure", 
-    year: "2024", 
-    desc: "Secure and minimalist authentication and project anchoring dashboard.", 
-    longDesc: "Anchor19 provides a centralized, high-security dashboard for managing technical projects and authentication flows. It prioritizes data integrity and a zero-friction user experience, built on the robust Next.js and Vercel infrastructure.",
-    tech: ["TypeScript", "Next.js", "Vercel", "Security"],
+    category: "Workspace Console", 
+    year: "2026", 
+    desc: "A keyboard-driven workspace console built because ALT-Tabbing between tools to capture a fleeting thought is a form of digital self-harm.", 
+    longDesc: "Anchor19 is a **keyboard-driven workspace console** built because ALT-Tabbing between Notion, Jira, Google Drive, and ChatGPT just to capture a single fleeting thought is a form of digital self-harm. Engineered for developers who think faster than they type, Anchor19 strips away the latency of modern SaaS bloat by running a zero-friction **CMD+K interface** directly on top of **real-time Firestore pipelines**. By coupling __predictive NLP commands__ with instant route redirection, the platform dispatches background __generative AI tasks__ the millisecond you hit enter, landing you in a fluidly animated refinement sandbox. Wrapped in a bespoke, multi-theme terminal-style design system with custom-engineered context overlays, it feels less like a web app and more like a **high-performance command bridge** for your digital life.",
+    tech: ["Next.js", "Firebase Firestore", "Gemini API", "Google Drive API", "TypeScript", "TailwindCSS"],
     url: "https://github.com/prasanna192005/anchor19",
     live: "https://anchor19.vercel.app",
     color: "#4DD3B0",
-    role: "Lead Systems Engineer",
-    timeframe: "4 Month Sprint",
+    role: "Lead Product & Systems Architect",
+    timeframe: "Product Release (2024)",
     features: [
-      "Consolidated API Management: Single dashboard to coordinate developer credentials across active project nodes.",
-      "Secure Identity Shielding: Hardened auth flows leveraging Vercel Edge configuration protocols.",
-      "Telemetry HUD: Minimalist dashboard displaying node status and operational stats with low latency."
+      "Natural Language Command Matrix (CMD+K): The control room of the entire application. Instead of tedious clicking, it uses a debounced NLP parser with Levenshtein-distance fallbacks. Type commands like summarise @ProjectBrief or email @RefactorNotes to query your entire workspace, target specific notes, and kick off background operations in under 40 milliseconds.",
+      "The AI Intelligence Lab: A specialized sandbox for LLM orchestration. The moment you run an AI command, the app immediately redirects you to the Lab with a pulsing \"thinking\" UI. The Gemini-powered edge API streams your results, which you can toggle between a raw text editor and a rendered Github-Flavored Markdown preview, followed by a chat-based refinement loop to tweak, shorten, or format the text on the fly.",
+      "GDrive Shadow Search & Fuzzy Matcher: Say goodbye to Google’s painfully bloated interface. Anchor19 connects to the Google Drive API, indexes metadata, and exposes it through a high-speed fuzzy search engine. Type a few broken, mistyped letters of a cloud document, and the fuzzy-matching algorithm surfaces the link instantly alongside your local notes.",
+      "Secure Public Hand-off: One-click sharing that actually works. Generate secure, read-only web pages of your notes instantly to send to clients or team members, without forcing them to sign up for an account or exposing your private database keys.",
+      "Frictionless Velocity Console: No manuals or heavy setup required. Everything is pre-configured to work out of the box with simple keyboard shortcuts and ready-to-use note templates, keeping you in the flow zone instead of tweaking settings."
     ],
-    logicDesc: "Employs modern Next.js route handlers and serverless deployment targets, using encrypted storage tokens to enforce secure, zero-trust API management.",
-    aestheticDesc: "Applies a rich dark developer console interface with neon-green active status trackers and clean borders, capturing a high-tech control system look."
+    logicDesc: "Features a client-side NLP engine that processes command strings locally to optimize responsiveness. Real-time updates are driven by Firestore websocket listeners, while generative tasks stream via Vercel Edge functions for zero-latency execution.",
+    aestheticDesc: "Implements a sleek keyboard-centric HUD design, complete with blur-backdrop modals, responsive monospaced typography, and smooth transitions, bringing terminal speed to a modern browser window."
   },
   { 
     id: "06", 
@@ -153,6 +155,29 @@ export const projects: Project[] = [
     ],
     logicDesc: "Orchestrates live session state and response aggregates using Firebase Realtime Database’s native websocket listeners for sub-100ms updates. Leverages local-storage hashes linked directly to a responsive OTP-style code entry system to authenticate anonymous votes without user tables.",
     aestheticDesc: "Uses a stark, high-contrast presenter screen optimized for projector scale. Features dynamic 16:9 viewport calculation handlers to lock layouts during window resizes, paired with client-side DOM-to-raster PNG compilation to download slide graphics on the fly."
+  },
+  { 
+    id: "07", 
+    title: "QR19", 
+    category: "Developer Utility", 
+    year: "2024", 
+    desc: "Privacy-focused QR code generator with professional styling, logo support, and high-resolution PNG/SVG export—built with React, Vite, and Tailwind.", 
+    longDesc: "QR19 is a **precision QR code engine** built because generating a clean vector graphic shouldn't require dodging full-screen pop-up ads and tracking scripts. Adhering to a strict zero-tracking policy, it runs entirely in the browser to deliver **high-fidelity, production-ready assets** directly to your storage. It integrates __pixel-perfect customizations__ including logo excavation logic, custom visual palettes, and dual vector/raster downloads, creating a clean, focused utility that values both your design details and your data privacy.",
+    tech: ["React", "Vite", "TailwindCSS", "TypeScript", "Canvas API"],
+    url: "https://github.com/prasanna192005/qrgen",
+    live: "https://qr19.vercel.app",
+    color: "#7B1FA2",
+    role: "Lead Frontend Architect",
+    timeframe: "Independent Release (2024)",
+    features: [
+      "Zero-Track Privacy Shield: Operates with zero analytics scripts and zero servers. vCard details, phone credentials, and private URLs are compiled entirely within local memory context.",
+      "Branded Logo Excavator: Embed visual logos at the center of the canvas matrix. Uses custom excavation logic to wipe conflicting background blocks and maintain scanning alignment.",
+      "Vector & Raster Engines: Export clean graphics on demand. Choose high-resolution SVG for infinite scalability in design layouts or pixel-aligned PNG for digital channels.",
+      "Curated Studio Presets: Switch between premium visual palettes (Onyx, Midnight, Electric) to bypass raw hex inputs and maintain visual consistency across codes.",
+      "Universal Protocol Matrix: Encodes standardized payloads for website URLs, digital business cards (vCard), direct WhatsApp/SMS triggers, pre-filled emails, and calendar schedules."
+    ],
+    logicDesc: "Processes QR matrices entirely client-side using the Canvas API. Logo framing crops canvas layers dynamically, applying clean boundary boxes around logos to prevent scanning conflicts and data loss.",
+    aestheticDesc: "Applies a minimalist, dark studio workspace interface with granular slider controls, real-time visual canvas feedback, and color chip selection nodes for designer productivity."
   },
 ];
 

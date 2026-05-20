@@ -1,0 +1,182 @@
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{geometry}
+\geometry{left=0.42in, right=0.42in, top=0.35in, bottom=0.35in}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-5pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-4pt}]
+
+\pdfgentounicode=1
+
+\newcommand{\resumeItem}[1]{
+  \item\small{{#1 \vspace{-2pt}}}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-6pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-6pt}
+}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.12in, label={}, topsep=0pt, partopsep=0pt]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-4pt}}
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge Prasanna Pandharikar} \\ \vspace{1pt}
+    \small +91 8468845787 $|$
+    \href{mailto:prasannapandharikar19@gmail.com}{\underline{prasannapandharikar19@gmail.com}} $|$
+    \href{https://linkedin.com/in/prasanna-pandharikar}{\underline{linkedin.com/in/prasanna-pandharikar}} $|$
+    \href{https://github.com/prasanna192005}{\underline{github.com/prasanna192005}}
+\end{center}
+\vspace{-6pt}
+
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Sardar Patel Institute of Technology}{Mumbai, India}
+      {B.Tech in Electronics \& Telecommunication (GPA: 8.34/10) $|$ \textit{Minor in Computer Engineering}}{Aug. 2022 -- May 2026}
+  \resumeSubHeadingListEnd
+\vspace{-4pt}
+
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Machine Learning Intern}{Jan. 2026 -- Present}
+      {edept}{Mumbai, India}
+      \resumeItemListStart
+        \resumeItem{Engineered an automated quiz generation pipeline utilizing LLMs to dynamically compile, validate, and serve custom STEM evaluations based on syllabus topics.}
+        \resumeItem{Architected an adaptive learning platform that processes real-time student performance telemetry to dynamically personalize study paths and index modular lessons.}
+        \resumeItem{Designed the Sophos Engine, a context-aware lecture script generator for professors that processes complete course syllabi to draft structured lesson material.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Hackathon Problem Setter \& Curriculum Designer}{Aug. 2025 -- Dec. 2025}
+      {edept}{Mumbai, India}
+      \resumeItemListStart
+        \resumeItem{Designed DSA problem statements mapped to progressive skill belts, covering data structures, algorithms, and system-design challenges of varying difficulty.}
+        \resumeItem{Automated the end-to-end pipeline of pushing finalized problem statements to GitHub, syncing metadata to tracking sheets, and maintaining a live leaderboard dashboard.}
+        \resumeItem{Authored original, open-ended hackathon problem statements emphasizing real-world problem solving over pattern-matching, driving deeper critical thinking among participants.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+\vspace{-4pt}
+
+\section{Projects}
+    \resumeSubHeadingListStart
+
+      \resumeProjectHeading
+          {\textbf{ObservoAI} $|$ \emph{FastAPI, Python, ML Anomaly Detection, OpenTelemetry, Next.js, Prometheus, Grafana} $|$ \href{https://github.com/prasanna192005/ObservoAI}{\underline{Github}} $|$ \href{https://youtu.be/v2XaY78f0vQ}{\underline{Demo}}}{March 2025}
+          \resumeItemListStart
+            \resumeItem{Architected a high-throughput AI observability watchdog using OpenTelemetry to ingest and visualize 10K+ telemetry streams/sec under 250ms latency.}
+            \resumeItem{Designed a multi-model 3-tier ML anomaly detection pipeline (LSTM Autoencoders, Isolation Forests) with FastAPI, achieving 98.4\% diagnostic precision.}
+            \resumeItem{Engineered a low-latency conversational AI voice agent allowing on-call engineers to verbally query real-time system state and trigger rollback scripts.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{AKSHAR} $|$ \emph{Next.js, Firebase, TypeScript, TailwindCSS, Framer Motion} $|$ \href{https://github.com/prasanna192005/project-akshar}{\underline{Github}} $|$ \href{https://akshar19.vercel.app}{\underline{Live}}}{Jan. 2026}
+          \resumeItemListStart
+            \resumeItem{Architected a high-concurrency multiplayer typing racer with sub-100ms state synchronization across concurrent player lobbies using distributed state machine loops.}
+            \resumeItem{Engineered a tactical capability engine featuring 8 unique Indian operatives with passive protocols and active sabotage payloads synced via atomic transitions.}
+            \resumeItem{Designed a server-stamped synchronization protocol using optimistic local progression to eliminate network jitter and resolve concurrent state race conditions.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{MyBuddy} $|$ \emph{React, Django REST API, PostgreSQL, LangChain, RAG} $|$ \href{https://github.com/prasanna192005/My-Buddy}{\underline{Github}}}{May 2025}
+          \resumeItemListStart
+            \resumeItem{Engineered an interactive, multi-user AI study dashboard using LangChain and RAG to dynamically parse, chunk, and index academic reference material.}
+            \resumeItem{Architected a scalable Django REST API with PostgreSQL indexing to compile and distribute custom evaluations under high concurrent student loads.}
+            \resumeItem{Implemented an analytics dashboard with interactive metrics tracking student learning velocity and diagnostic weak-point reports.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{Anchor19} $|$ \emph{Next.js, Firestore, Gemini API, Google Drive API} $|$ \href{https://github.com/prasanna192005/anchor19}{\underline{Github}} $|$ \href{https://anchor19.vercel.app}{\underline{Live}}}{March 2026}
+          \resumeItemListStart
+            \resumeItem{Designed an ultra-low-latency workspace command console syncing global client-server states under 40ms using reactive, batched Firestore cache syncing and atomic mutations.}
+            \resumeItem{Developed an in-memory NLP fuzzy search lexer implementing a multi-threaded Levenshtein distance matrix to compute character similarities across local indices with sub-5ms lookup times.}
+            \resumeItem{Built an asynchronous background indexing microservice that integrates Google Drive API webhooks to automatically parse, tokenize, and map nested document hierarchies.}
+          \resumeItemListEnd
+
+    \resumeSubHeadingListEnd
+\vspace{-4pt}
+
+\section{Leadership Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Technical Head}{Sep. 2024 -- Sep. 2025}
+      {WIE IEEE SPIT}{Mumbai, India}
+      \resumeItemListStart
+        \resumeItem{Led technical initiatives and directed a developer team to organize hackathons and technical workshops for 150+ active participants.}
+        \resumeItem{Developed a dedicated event management web application to streamline registration, scheduling, and real-time announcements.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Head of Creatives}{Sep. 2023 -- Sep. 2024}
+      {Oculus S.P.I.T.}{Mumbai, India}
+      \resumeItemListStart
+        \resumeItem{Directed the creative design division, managing visual branding, promotional assets, and marketing layouts for Oculus SPIT.}
+        \resumeItem{Leveraged Adobe Illustrator and Photoshop to produce high-fidelity design assets, driving student engagement across digital channels.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+\vspace{-4pt}
+
+\section{Achievements}
+ \begin{itemize}[leftmargin=0.12in, label={}, topsep=0pt]
+    \small{\item{
+     \textbf{Winner (First Place)}{: Barclays Hack-O-Hire Hackathon 2025 (Developed ObservoAI, an AI-powered automated observability watchdog platform).}
+    }}
+ \end{itemize}
+\vspace{-4pt}
+
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.12in, label={}, topsep=0pt]
+    \small{\item{
+     \textbf{Languages}{: TypeScript, JavaScript, Java, C++, C, SQL, HTML/CSS} \\
+     \textbf{Frameworks}{: Next.js, React, Node.js, Express, FastAPI, TailwindCSS} \\
+     \textbf{Developer Tools}{: Firebase, Firestore, RTDB, Git, Docker, Kubernetes, AWS, Prometheus, Grafana, OpenTelemetry, Vercel Edge}
+    }}
+ \end{itemize}
+
+\end{document}

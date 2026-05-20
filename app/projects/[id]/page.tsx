@@ -47,12 +47,15 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
 
   // Consistent Jewel Tones
   const bgColors: Record<string, string> = {
-    "01": "bg-[#C62828]",
-    "02": "bg-[#1565C0]",
-    "03": "bg-[#2E7D32]",
-    "04": "bg-[#F57F17]",
+    "01": "bg-gradient-to-br from-[#8C1B1B] via-[#C62828] to-[#500C0C]",
+    "02": "bg-gradient-to-br from-[#0D47A1] via-[#1565C0] to-[#0A2E66]",
+    "03": "bg-gradient-to-br from-[#1B5E20] via-[#2E7D32] to-[#113B15]",
+    "04": "bg-gradient-to-br from-[#D84315] via-[#E65100] to-[#8E2400]",
+    "05": "bg-gradient-to-br from-[#004D40] via-[#00796B] to-[#00251A]",
+    "06": "bg-gradient-to-br from-[#1A237E] via-[#3F51B5] to-[#0D1340]",
+    "07": "bg-gradient-to-br from-[#4A148C] via-[#7B1FA2] to-[#250352]",
   };
-  const bgColor = bgColors[project.id] || "bg-[#C62828]";
+  const bgColor = bgColors[project.id] || "bg-gradient-to-br from-[#8C1B1B] via-[#C62828] to-[#500C0C]";
 
   return (
     <div className="min-h-screen w-full bg-[#FDFBF7] text-[#121212] font-sans selection:bg-[#FF1F00] selection:text-white overflow-x-hidden">
@@ -62,44 +65,47 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
 
       <main className="relative">
         {/* Hero Section (Royal Patrika Header) */}
-        <div className={`min-h-[80vh] w-full flex flex-col items-center justify-center relative px-8 py-32 overflow-hidden ${bgColor} text-white`}>
+        <div className={`min-h-[85vh] w-full flex flex-col items-center justify-center relative px-8 py-32 overflow-hidden ${bgColor} text-white`}>
+          {/* Elegant Gold Inset Border Margins */}
+          <div className="absolute inset-6 md:inset-8 border border-[#FFE082]/15 pointer-events-none rounded-sm z-20"></div>
+
           {/* Background ID Ghost */}
-          <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[40vw] font-bold text-white/[0.04] pointer-events-none select-none uppercase">
+          <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[45vw] font-bold text-white/[0.03] pointer-events-none select-none uppercase z-0 font-sans tracking-tighter">
             {project.id}
           </span>
           
           {/* Subtle Jaali Grid */}
-          <div className="absolute inset-0 opacity-[0.1] pointer-events-none jaali-grid scale-150 grayscale invert"></div>
+          <div className="absolute inset-0 opacity-[0.07] pointer-events-none jaali-grid scale-150 grayscale invert z-0"></div>
 
-          {/* Temple Corner Brackets (Light Accents) */}
-          <div className="absolute top-12 left-12 w-32 h-32 opacity-40 pointer-events-none">
-            <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-white stroke-[0.8]">
+          {/* Temple Corner Brackets (Light Gold Accents) */}
+          <div className="absolute top-12 left-12 w-32 h-32 opacity-50 pointer-events-none z-10">
+            <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-[#FFE082] stroke-[0.8]">
               <path d="M0 0 L100 0 M0 0 L0 100" />
-              <circle cx="0" cy="0" r="4" className="fill-white stroke-none" />
+              <circle cx="0" cy="0" r="4" className="fill-[#FFE082] stroke-none" />
               <path d="M10 10 Q30 10 30 30" />
               <path d="M20 20 L40 40" strokeDasharray="2 2" />
             </svg>
           </div>
-          <div className="absolute top-12 right-12 w-32 h-32 opacity-40 pointer-events-none scale-x-[-1]">
-            <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-white stroke-[0.8]">
+          <div className="absolute top-12 right-12 w-32 h-32 opacity-50 pointer-events-none scale-x-[-1] z-10">
+            <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-[#FFE082] stroke-[0.8]">
               <path d="M0 0 L100 0 M0 0 L0 100" />
-              <circle cx="0" cy="0" r="4" className="fill-white stroke-none" />
+              <circle cx="0" cy="0" r="4" className="fill-[#FFE082] stroke-none" />
               <path d="M10 10 Q30 10 30 30" />
               <path d="M20 20 L40 40" strokeDasharray="2 2" />
             </svg>
           </div>
 
           <div className="max-w-6xl w-full z-10 relative text-center flex flex-col items-center">
-            {/* Hanging Lotus Bell */}
-            <svg viewBox="0 0 20 60" className="absolute -top-32 left-1/2 -translate-x-1/2 w-8 h-24 stroke-white/40 fill-none">
+            {/* Hanging Lotus Bell (Gold) */}
+            <svg viewBox="0 0 20 60" className="absolute -top-32 left-1/2 -translate-x-1/2 w-8 h-24 stroke-[#FFE082]/55 fill-none">
               <line x1="10" y1="0" x2="10" y2="40" strokeWidth="0.5" strokeDasharray="2 2" />
-              <path d="M2 40 Q10 55 18 40 Z" className="fill-white/40" stroke="none" />
-              <circle cx="10" cy="58" r="1" className="fill-white" stroke="none" />
+              <path d="M2 40 Q10 55 18 40 Z" className="fill-[#FFE082]/40" stroke="none" />
+              <circle cx="10" cy="58" r="1" className="fill-[#FFE082]" stroke="none" />
             </svg>
 
-            {/* Mandala Watermark Behind Title */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] md:w-[800px] md:h-[800px] opacity-[0.08] pointer-events-none">
-              <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-white stroke-[0.3]">
+            {/* Mandala Watermark Behind Title (Slowly Spinning Gold) */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] md:w-[850px] md:h-[850px] opacity-[0.06] pointer-events-none">
+              <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-[#FFE082] stroke-[0.3] animate-[spin_240s_linear_infinite]">
                 <circle cx="50" cy="50" r="45" />
                 {[...Array(18)].map((_, i) => (
                   <path 
@@ -113,30 +119,30 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
 
             <div className="flex flex-col items-center space-y-8 relative z-10">
               <div className="flex items-center space-x-6">
-                <span className="font-pixel text-[11px] text-white/60 tracking-[0.3em] uppercase">{project.year} // SYSTEM_ID_{project.id}</span>
+                <span className="font-pixel text-[11px] text-[#FFE082]/85 tracking-[0.3em] uppercase">{project.year} // SYSTEM_ID_{project.id}</span>
                 <div className="w-16 h-px bg-white/20"></div>
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 rounded-full bg-white animate-pulse"></div>
-                  <span className="text-[10px] font-pixel text-white/60 uppercase tracking-widest">{project.category}</span>
+                  <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+                  <span className="text-[10px] font-pixel text-white/70 uppercase tracking-widest">{project.category}</span>
                 </div>
               </div>
-              <h1 className="text-5xl md:text-9xl font-serif tracking-tight flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4">
+              <h1 className="text-5xl md:text-9xl font-serif tracking-tight flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 drop-shadow-[0_4px_12px_rgba(0,0,0,0.25)]">
                 <span>{project.title.split(' ')[0]}</span>
                 {project.title.split(' ').slice(1).length > 0 && (
-                  <span className="font-helvetica font-bold uppercase text-3xl md:text-7xl mt-1 md:mt-4 text-white/90">
+                  <span className="font-helvetica font-bold uppercase text-3xl md:text-7xl mt-1 md:mt-4 text-[#FFE082] tracking-wider drop-shadow-none">
                     {project.title.split(' ').slice(1).join(' ')}
                   </span>
                 )}
               </h1>
 
-              {/* Top Header Action Links */}
+              {/* Top Header Action Links (Premium Gold Glassmorphism) */}
               <div className="flex flex-wrap items-center justify-center gap-4 mt-2">
                 {project.url && (
                   <Link 
                     href={project.url} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="flex items-center space-x-2 border border-white/20 px-5 py-2.5 rounded-sm text-[10px] font-pixel uppercase tracking-widest hover:bg-white hover:text-black transition-all"
+                    className="flex items-center space-x-2 bg-white/5 backdrop-blur-md border border-white/15 px-5 py-2.5 rounded-sm text-[10px] font-pixel uppercase tracking-widest hover:bg-[#FFE082] hover:text-black hover:border-[#FFE082] hover:shadow-lg hover:scale-105 transition-all duration-300"
                   >
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7a3.37 3.37 0 0 0-.94 2.58V22"></path></svg>
                     <span>Repository</span>
@@ -147,7 +153,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
                     href={project.demo} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="flex items-center space-x-2 border border-white/20 px-5 py-2.5 rounded-sm text-[10px] font-pixel uppercase tracking-widest hover:bg-white hover:text-black transition-all"
+                    className="flex items-center space-x-2 bg-white/5 backdrop-blur-md border border-white/15 px-5 py-2.5 rounded-sm text-[10px] font-pixel uppercase tracking-widest hover:bg-[#FFE082] hover:text-black hover:border-[#FFE082] hover:shadow-lg hover:scale-105 transition-all duration-300"
                   >
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <polygon points="5 3 19 12 5 21 5 3" fill="currentColor"></polygon>
@@ -160,7 +166,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
                     href={project.live} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="flex items-center space-x-2 border border-white/20 px-5 py-2.5 rounded-sm text-[10px] font-pixel uppercase tracking-widest hover:bg-white hover:text-black transition-all"
+                    className="flex items-center space-x-2 bg-white/5 backdrop-blur-md border border-white/15 px-5 py-2.5 rounded-sm text-[10px] font-pixel uppercase tracking-widest hover:bg-[#FFE082] hover:text-black hover:border-[#FFE082] hover:shadow-lg hover:scale-105 transition-all duration-300"
                   >
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"></path></svg>
                     <span>Live Site</span>
