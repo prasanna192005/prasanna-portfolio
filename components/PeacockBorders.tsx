@@ -201,8 +201,8 @@ const PeacockTailBorder = ({ side, position = "fixed", topOffset = "0" }: { side
 );
 
 export const PeacockBorders = ({ position = "fixed", topOffset = "0" }: { position?: "fixed" | "absolute"; topOffset?: string }) => (
-  <>
+  <div className="hidden lg:block">
     <PeacockTailBorder side="left" position={position} topOffset={topOffset} />
     <PeacockTailBorder side="right" position={position} topOffset={topOffset} />
-  </>
+  </div>
 );

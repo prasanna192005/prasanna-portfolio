@@ -6,7 +6,7 @@ import { PeacockBorders } from "@/components/PeacockBorders";
 
 const ProjectsSection = () => {
   return (
-    <section id="projects" className="min-h-screen w-full bg-[#FDFBF7] flex flex-col items-center py-32 px-8 relative overflow-hidden">
+    <section id="projects" className="min-h-screen w-full bg-[#FDFBF7] flex flex-col items-center py-20 md:py-32 px-4 sm:px-8 relative overflow-hidden">
       {/* Royal Peacock Framing */}
       <PeacockBorders position="absolute" topOffset="8rem" />
 
@@ -52,7 +52,7 @@ const ProjectsSection = () => {
             return (
             <div 
               key={project.id} 
-              className={`group relative aspect-[16/10] ${bgColors[index]} p-8 flex flex-col justify-between hover:-translate-y-1 transition-transform duration-700 overflow-hidden text-left shadow-sm hover:shadow-xl`}
+              className={`group relative aspect-auto min-h-[340px] md:aspect-[16/10] ${bgColors[index]} p-6 md:p-8 flex flex-col justify-between hover:-translate-y-1 transition-transform duration-700 overflow-hidden text-left shadow-sm hover:shadow-xl`}
             >
               <Link href={`/projects/${project.id}`} className="absolute inset-0 z-10" aria-label={`View project ${project.title}`} />
               {/* Khadi Paper Grain Overlay */}

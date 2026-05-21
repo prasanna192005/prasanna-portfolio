@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const SkillsSection = () => {
   return (
-    <section className="w-full bg-white flex flex-col items-center py-32 px-16 relative overflow-hidden border-b border-black/5">
+    <section className="w-full bg-white flex flex-col items-center py-20 md:py-32 px-6 md:px-16 relative overflow-hidden border-b border-black/5">
       {/* Interactive Left Garland */}
       <div className="hidden md:flex absolute left-12 top-24 bottom-24 w-12 flex-col items-center justify-between z-20 group/garland cursor-crosshair">
         <div className="absolute top-0 bottom-0 w-px bg-[#BF360C]/10 group-hover/garland:bg-[#BF360C]/40 transition-colors duration-700"></div>
@@ -48,7 +48,7 @@ const SkillsSection = () => {
         </div>
         
         <span className="font-pixel text-[10px] text-[#BF360C] uppercase tracking-[0.5em] mb-4 block">Phase 01.5</span>
-        <h2 className="text-4xl md:text-5xl font-serif tracking-tight text-[#121212] mb-20 flex items-center justify-center gap-3">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif tracking-tight text-[#121212] mb-12 md:mb-20 flex flex-wrap items-center justify-center gap-2 md:gap-3">
           Technical <span className="font-helvetica font-bold uppercase text-2xl md:text-3xl text-[#BF360C] mt-1.5">Skills</span>
         </h2>
 

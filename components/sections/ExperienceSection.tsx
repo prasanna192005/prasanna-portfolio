@@ -36,7 +36,7 @@ const CardFrame = ({ children, title, subtitle, bgColor, accentColor }: {
 }) => (
   <motion.div 
     whileHover={{ y: -5 }}
-    className={`relative ${bgColor} p-10 md:p-14 overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.2)] group transition-all duration-700`}
+    className={`relative ${bgColor} p-6 sm:p-10 md:p-14 overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.2)] group transition-all duration-700`}
   >
     {/* Khadi Grain Overlay (Ensures tactile feel) */}
     <div className="grain-overlay opacity-30 pointer-events-none" />
@@ -84,19 +84,19 @@ const CardFrame = ({ children, title, subtitle, bgColor, accentColor }: {
 
 export default function ExperienceSection() {
   return (
-    <section className="py-40 bg-[#FDFBF7] relative overflow-hidden">
+    <section className="py-20 md:py-40 bg-[#FDFBF7] relative overflow-hidden">
       {/* Background Jaali Grid */}
       <div className="absolute inset-0 opacity-[0.05] pointer-events-none jaali-grid scale-150"></div>
 
-      <div className="max-w-6xl mx-auto px-8 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-8 relative z-10">
         {/* Section Header */}
-        <div className="mb-32 flex flex-col items-start">
+        <div className="mb-16 md:mb-32 flex flex-col items-start">
           <div className="flex items-center space-x-4 mb-6">
             <div className="w-12 h-px bg-[#FF1F00]"></div>
             <span className="font-pixel text-[11px] text-[#FF1F00] uppercase tracking-[0.6em]">Chronicle / Lineage</span>
           </div>
-          <h2 className="text-5xl md:text-8xl font-serif tracking-tight text-[#121212]">
-            Knowledge <span className="font-helvetica font-bold uppercase text-3xl md:text-6xl text-[#FF1F00]">& Karma</span>
+          <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-serif tracking-tight text-[#121212]">
+            Knowledge <span className="font-helvetica font-bold uppercase text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-[#FF1F00]">& Karma</span>
           </h2>
         </div>
 

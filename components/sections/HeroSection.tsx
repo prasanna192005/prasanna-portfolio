@@ -17,7 +17,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="h-screen w-full flex flex-col items-center justify-center relative px-8 bg-[#FF1F00] overflow-hidden">
+    <section className="min-h-screen md:h-screen w-full flex flex-col items-center justify-center relative px-4 sm:px-8 py-20 md:py-0 bg-[#FF1F00] overflow-hidden">
       {/* Parallax Jaali Grid Layer */}
       <div 
         className="absolute inset-0 jaali-grid pointer-events-none"
@@ -75,8 +75,8 @@ const HeroSection = () => {
         </svg>
       </div>
 
-      <div className="max-w-5xl text-center z-10 px-4 mt-58 text-white">
-        <h1 className="text-4xl md:text-4xl font-helvetica font-normal leading-[1.1] tracking-tight">
+      <div className="max-w-5xl text-center z-10 px-4 mt-16 md:mt-24 text-white">
+        <h1 className="text-3xl sm:text-4xl md:text-4xl font-helvetica font-normal leading-[1.2] md:leading-[1.1] tracking-tight">
           I&apos;m Prasanna Pandharikar 
           <span className="inline-block mx-4 align-middle relative w-14 h-14 md:w-24 md:h-24 group/inline not-italic">
              {/* Polygon Image with Tilak Markers */}

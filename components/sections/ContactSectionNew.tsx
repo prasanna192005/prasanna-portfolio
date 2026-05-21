@@ -76,7 +76,7 @@ const ContactSectionNew = () => {
   ];
 
   return (
-    <section id="contact" className="min-h-screen w-full flex flex-col items-center justify-center relative bg-[#2563EB] px-8 py-20 overflow-hidden">
+    <section id="contact" className="min-h-screen w-full flex flex-col items-center justify-center relative bg-[#2563EB] px-4 sm:px-8 py-16 sm:py-20 overflow-hidden">
       {/* Subtle Texture Layer */}
       <div className="absolute inset-0 opacity-10 pointer-events-none grain-overlay mix-blend-overlay" />
       
@@ -103,7 +103,7 @@ const ContactSectionNew = () => {
         <div className="flex flex-col space-y-12 w-full lg:items-start lg:pt-20">
            
            {/* Direct Dispatch Card - Width Reduced & Shifted Down */}
-           <div className="p-10 bg-white text-[#2563EB] shadow-2xl relative overflow-hidden w-full max-w-lg">
+           <div className="p-6 sm:p-10 bg-white text-[#2563EB] shadow-2xl relative overflow-hidden w-full max-w-lg">
               <div className="relative z-10 space-y-8">
                  
                  {/* Email Entry */}

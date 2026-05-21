@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const ShowcaseSection = () => {
   return (
-    <section id="about" className="min-h-screen w-full flex items-center justify-center relative bg-[#BF360C] px-8 py-32 overflow-hidden">
+    <section id="about" className="min-h-screen w-full flex items-center justify-center relative bg-[#BF360C] px-4 sm:px-8 py-20 md:py-32 overflow-hidden">
       
       {/* Khadi Texture Overlay */}
       <div className="grain-overlay opacity-20 pointer-events-none" />
@@ -30,7 +30,7 @@ const ShowcaseSection = () => {
            {/* Ornate Leaves (Lotus-like) */}
            {[...Array(20)].map((_, i) => (
              <g key={i} transform={`translate(${40 + Math.random() * 120}, ${20 + Math.random() * 200}) scale(${0.3 + Math.random() * 0.5})`}>
-                <path d="M0 0 Q10 -20 0 -40 Q-10 -20 0 0" fill="white" fillOpacity="0.5" />
+                 <path d="M0 0 Q10 -20 0 -40 Q-10 -20 0 0" fill="white" fillOpacity="0.5" />
              </g>
            ))}
 
@@ -44,26 +44,26 @@ const ShowcaseSection = () => {
       <div className="relative w-full max-w-7xl flex flex-col lg:flex-row items-center gap-16 lg:gap-32 z-10">
         
         {/* Left Side: The Artisan Portrait (The Polygon) */}
-        <div className="relative w-[300px] h-[250px] md:w-[500px] md:h-[350px] lg:w-[550px] lg:h-[400px]">
+        <div className="relative w-[280px] h-[230px] sm:w-[350px] sm:h-[280px] md:w-[500px] md:h-[350px] lg:w-[550px] lg:h-[400px]">
           
           {/* Metadata Labels (Precisely Aligned to Polygon Vertices) */}
-          <div className="absolute top-0 left-0 -translate-y-full -translate-x-4 text-left">
+          <div className="hidden sm:block absolute top-0 left-0 -translate-y-full -translate-x-4 text-left">
             <p className="font-pixel text-[9px] md:text-[10px] tracking-[0.4em] uppercase leading-relaxed text-[#FDFBF7]/60">
               Building_<span className="text-white">Ideas</span><br />
               Into_Reality
             </p>
           </div>
-          <div className="absolute top-[14%] right-[7%] translate-x-full -translate-y-4 text-right">
+          <div className="hidden sm:block absolute top-[14%] right-[7%] translate-x-full -translate-y-4 text-right">
             <p className="font-pixel text-[9px] md:text-[10px] tracking-[0.4em] uppercase text-[#FDFBF7]/60">
               Full_Stack<br />Developer
             </p>
           </div>
-          <div className="absolute bottom-[5%] right-[10%] translate-x-full translate-y-8 text-right">
+          <div className="hidden sm:block absolute bottom-[5%] right-[10%] translate-x-full translate-y-8 text-right">
             <p className="font-pixel text-[9px] md:text-[10px] tracking-[0.4em] uppercase text-[#FDFBF7]/60">
               AI • WEB •<br />REAL-TIME_SYSTEMS
             </p>
           </div>
-          <div className="absolute bottom-[10%] right-[4%] -translate-x-full translate-y-10 text-left">
+          <div className="hidden sm:block absolute bottom-[10%] right-[4%] -translate-x-full translate-y-10 text-left">
             <p className="font-pixel text-[9px] md:text-[10px] tracking-[0.4em] uppercase text-[#FDFBF7]/60">
               Products_People_Enjoy
             </p>

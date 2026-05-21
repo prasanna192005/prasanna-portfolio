@@ -8,14 +8,14 @@ const Navbar = () => {
   const pathname = usePathname();
 
   return (
-    <div className="fixed top-8 left-0 w-full z-[100] flex justify-center px-6">
+    <div className="fixed top-4 sm:top-8 left-0 w-full z-[100] flex justify-center px-4 sm:px-6">
       <motion.header 
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         className="relative group"
       >
         {/* The Patrika Frame (Manuscript Style) */}
-        <div className="relative bg-[#FDFBF7] border border-[#BF360C]/30 px-6 py-2 shadow-[0_15px_40px_rgba(191,54,12,0.1)] overflow-hidden">
+        <div className="relative bg-[#FDFBF7] border border-[#BF360C]/30 px-3 sm:px-6 py-2 shadow-[0_15px_40px_rgba(191,54,12,0.1)] overflow-hidden">
           {/* Khadi Grain Overlay */}
           <div className="grain-overlay opacity-20 pointer-events-none" />
 
@@ -34,9 +34,9 @@ const Navbar = () => {
           </svg>
 
           {/* Navigation Links */}
-          <nav className="flex items-center space-x-6 relative z-10">
+          <nav className="flex items-center space-x-3 sm:space-x-6 relative z-10">
             {/* Logo Seal */}
-            <Link href="/" className="flex items-center group/logo pr-3 border-r border-[#BF360C]/10">
+            <Link href="/" className="flex items-center group/logo pr-2 sm:pr-3 border-r border-[#BF360C]/10">
               <svg viewBox="0 0 100 100" className="w-5 h-5 fill-[#BF360C] group-hover/logo:rotate-90 transition-transform duration-700">
                 {[...Array(8)].map((_, i) => (
                   <path key={i} d="M50 50 Q65 20 50 0 Q35 20 50 50" transform={`rotate(${i * 45} 50 50)`} />
@@ -46,7 +46,7 @@ const Navbar = () => {
               </svg>
             </Link>
 
-            <div className="flex items-center space-x-5 text-[9px] font-pixel uppercase tracking-[0.25em] text-[#121212]/60">
+            <div className="flex items-center space-x-2.5 sm:space-x-5 text-[8px] sm:text-[9px] font-pixel uppercase tracking-[0.15em] sm:tracking-[0.25em] text-[#121212]/60">
               {[
                 { name: "Projects", path: "/#projects" },
                 { name: "Design", path: "/design" },
@@ -73,10 +73,10 @@ const Navbar = () => {
 
             <Link 
               href="/resume" 
-              className="ml-1 font-serif italic text-xs text-[#BF360C] hover:text-[#FF1F00] transition-colors border-l border-[#BF360C]/10 pl-5 relative group/res"
+              className="ml-0.5 sm:ml-1 font-serif italic text-[10px] sm:text-xs text-[#BF360C] hover:text-[#FF1F00] transition-colors border-l border-[#BF360C]/10 pl-3 sm:pl-5 relative group/res"
             >
               Resume
-              <div className="absolute left-3 top-1/2 -translate-y-1/2 w-1 h-1 bg-[#BF360C] rotate-45 group-hover/res:scale-150 transition-transform"></div>
+              <div className="absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 w-1 h-1 bg-[#BF360C] rotate-45 group-hover/res:scale-150 transition-transform"></div>
             </Link>
           </nav>
         </div>

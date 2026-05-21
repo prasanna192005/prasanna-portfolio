@@ -55,7 +55,7 @@ const ArtifactCard = ({ art, idx, scrollYProgress }: { art: Artifact, idx: numbe
       </div>
 
       {/* Hand-Torn Parchment Image Container */}
-      <div className="relative w-[350px] md:w-[650px] aspect-[16/10] perspective-1000 z-10">
+      <div className="relative w-[85vw] sm:w-[350px] md:w-[650px] aspect-[16/10] perspective-1000 z-10">
         <motion.div 
           whileHover={{ rotateY: 2, rotateX: -2, scale: 1.02 }}
           className="relative w-full h-full shadow-[0_40px_100px_rgba(0,0,0,0.12)] overflow-hidden bg-white p-4"
