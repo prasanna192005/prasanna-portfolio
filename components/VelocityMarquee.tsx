@@ -72,30 +72,30 @@ const VelocityMarquee = ({ baseVelocity = 2 }: VelocityMarqueeProps) => {
       <motion.div className="flex whitespace-nowrap flex-nowrap" style={{ x }}>
         {[...Array(4)].map((_, i) => (
           <div key={i} className="flex items-center flex-shrink-0">
-            <span className="text-2xl md:text-3xl font-serif text-[#121212] tracking-widest uppercase italic pr-8 pl-8">Creative Engineer</span>
+            <span className="text-2xl md:text-3xl font-serif text-[#121212] tracking-widest italic pr-8 pl-8">chai powered</span>
             <svg viewBox="0 0 100 100" className="w-6 h-6 mx-4 fill-[#F57F17] animate-[spin_12s_linear_infinite]">
               {[...Array(8)].map((_, j) => (
                 <path key={j} d="M50 50 Q65 20 50 0 Q35 20 50 50" transform={`rotate(${j * 45} 50 50)`} />
               ))}
               <circle cx="50" cy="50" r="10" fill="#FDFBF7" />
             </svg>
-            <span className="text-2xl md:text-3xl font-helvetica font-bold text-[#121212] tracking-tighter uppercase pl-8 pr-8">Digital Artisan</span>
+            <span className="text-2xl md:text-3xl font-helvetica font-bold text-[#121212] tracking-tighter pl-8 pr-8">making pixels move</span>
             <svg viewBox="0 0 24 24" className="w-5 h-5 mx-4 fill-[#1565C0]">
               <path d="M2 24 L22 24 L12 12 L22 0 L2 0 L12 12 Z" strokeLinejoin="round" />
             </svg>
-            <span className="text-2xl md:text-3xl font-serif text-[#121212] tracking-widest uppercase italic pl-8 pr-8">System Architect</span>
+            <span className="text-2xl md:text-3xl font-serif text-[#121212] tracking-widest italic pr-8 pl-8">git push --force</span>
             <svg viewBox="0 0 100 100" className="w-6 h-6 mx-4 fill-none stroke-[#2E7D32] stroke-[8] animate-[spin_15s_linear_infinite_reverse]">
               <circle cx="50" cy="50" r="40" strokeDasharray="10 15" />
               <path d="M50 20 L50 80 M20 50 L80 50" />
               <circle cx="50" cy="50" r="8" className="fill-[#2E7D32]" />
             </svg>
-            <span className="text-2xl md:text-3xl font-helvetica font-bold text-[#121212] tracking-tighter uppercase pl-8 pr-8">Code Alchemist</span>
+            <span className="text-2xl md:text-3xl font-helvetica font-bold text-[#121212] tracking-tighter pl-8 pr-8">look, it moves!</span>
             <svg viewBox="0 0 100 100" className="w-5 h-5 mx-4 fill-[#C62828]">
               <path d="M50 0 L100 50 L50 100 L0 50 Z" />
               <circle cx="50" cy="50" r="20" fill="#FDFBF7" />
               <circle cx="50" cy="50" r="8" fill="#C62828" />
             </svg>
-            <span className="text-2xl md:text-3xl font-serif text-[#121212] tracking-widest uppercase italic pr-8 pl-8">UI Visionary</span>
+            <span className="text-2xl md:text-3xl font-serif text-[#121212] tracking-widest italic pl-8 pr-8">sanskriti × vigyanam</span>
             <svg viewBox="0 0 100 100" className="w-6 h-6 mx-4 fill-[#F57F17] animate-[spin_12s_linear_infinite]">
               {[...Array(8)].map((_, j) => (
                 <path key={j} d="M50 50 Q65 20 50 0 Q35 20 50 50" transform={`rotate(${j * 45} 50 50)`} />
