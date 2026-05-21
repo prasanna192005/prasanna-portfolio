@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import ScrollChakra from "@/components/ScrollChakra";
 import { motion } from "framer-motion";
 
 export default function ResumePage() {
@@ -185,16 +186,71 @@ export default function ResumePage() {
         }
       ` }} />
 
+      {/* Background/Margin Artwork (Traditional Sanskrit & Telemetry Elements) */}
+      <div className="absolute inset-0 pointer-events-none print-hidden overflow-hidden z-0">
+        {/* Subtle Khadi Paper Grain Overlay */}
+        <div className="grain-overlay opacity-[0.08]" />
+
+        {/* Subtle Jaali Lattice Grid */}
+        <div className="absolute inset-0 opacity-[0.04] jaali-grid scale-125 grayscale invert" />
+
+        {/* Top-Left Spinning Mandala */}
+        <div className="absolute top-12 -left-24 w-96 h-96 opacity-[0.035]">
+          <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-black stroke-[0.25] animate-[spin_240s_linear_infinite]">
+            <circle cx="50" cy="50" r="45" />
+            <circle cx="50" cy="50" r="38" strokeDasharray="1 2" />
+            {[...Array(12)].map((_, i) => (
+              <path key={i} d="M50 10 Q60 30 50 50 Q40 30 50 10" transform={`rotate(${i * 30} 50 50)`} />
+            ))}
+            <circle cx="50" cy="50" r="12" />
+          </svg>
+        </div>
+
+        {/* Bottom-Right Spinning Mandala */}
+        <div className="absolute bottom-24 -right-32 w-120 h-120 opacity-[0.03]">
+          <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-black stroke-[0.2] animate-[spin_300s_linear_infinite]">
+            <circle cx="50" cy="50" r="45" />
+            <circle cx="50" cy="50" r="40" strokeDasharray="2 3" />
+            {[...Array(18)].map((_, i) => (
+              <path key={i} d="M50 5 Q62 25 50 50 Q38 25 50 5" transform={`rotate(${i * 20} 50 50)`} />
+            ))}
+            <circle cx="50" cy="50" r="15" />
+          </svg>
+        </div>
+
+        {/* Large Faint Sanskrit Ghost Calligraphy in Margins */}
+        <div className="absolute top-72 left-6 hidden xl:flex flex-col items-center space-y-4 opacity-[0.03] select-none">
+          <span className="text-[6vw] font-bold whitespace-nowrap leading-none tracking-widest text-[#FF1F00]" style={{ writingMode: "vertical-rl" }}>
+            कर्मयोग
+          </span>
+          <div className="h-20 w-[1px] bg-gradient-to-b from-[#FF1F00] to-transparent"></div>
+        </div>
+
+        <div className="absolute bottom-96 right-6 hidden xl:flex flex-col items-center space-y-4 opacity-[0.03] select-none">
+          <div className="h-20 w-[1px] bg-gradient-to-t from-[#FF1F00] to-transparent"></div>
+          <span className="text-[6vw] font-bold whitespace-nowrap leading-none tracking-widest text-[#FF1F00]" style={{ writingMode: "vertical-rl" }}>
+            पुरुषार्थ
+          </span>
+        </div>
+
+        {/* Technical Corner Brackets / Telemetry Framing (Faint Red) */}
+        <div className="absolute top-8 left-8 w-24 h-24 opacity-[0.07] border-t border-l border-[#FF1F00]"></div>
+        <div className="absolute top-8 right-8 w-24 h-24 opacity-[0.07] border-t border-r border-[#FF1F00]"></div>
+        <div className="absolute bottom-8 left-8 w-24 h-24 opacity-[0.07] border-b border-l border-[#FF1F00]"></div>
+        <div className="absolute bottom-8 right-8 w-24 h-24 opacity-[0.07] border-b border-r border-[#FF1F00]"></div>
+      </div>
+
       {/* Global Navbar */}
       <div className="print-hidden">
         <Navbar />
+        <ScrollChakra />
       </div>
 
       {/* Main Resume Workspace */}
       <main className="pt-36 px-4 md:px-12 flex flex-col items-center print-p-0">
         
         {/* Floating Action Controls */}
-        <div className="max-w-205 w-full flex justify-between items-center mb-6 print-hidden">
+        <div className="max-w-205 w-full flex flex-row justify-between items-center mb-6 print-hidden gap-4 relative z-10">
           <div className="flex items-center space-x-3">
             <Link 
               href="/"
@@ -213,7 +269,7 @@ export default function ResumePage() {
           <a
             href="/Prasanna-Pandharikar-Resume.pdf"
             download="Prasanna-Pandharikar-Resume.pdf"
-            className="group relative px-6 py-2 bg-[#BF360C] text-[#FDFBF7] border border-[#BF360C] flex items-center space-x-2 transition-all duration-300 shadow-md hover:shadow-lg hover:bg-black hover:border-black cursor-pointer"
+            className="group relative px-3 sm:px-6 py-1.5 sm:py-2 bg-[#BF360C] text-[#FDFBF7] border border-[#BF360C] flex items-center space-x-2 transition-all duration-300 shadow-md hover:shadow-lg hover:bg-black hover:border-black cursor-pointer"
           >
             <svg viewBox="0 0 24 24" className="w-4 h-4 stroke-current fill-none stroke-2 group-hover:scale-110 transition-transform">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -229,7 +285,7 @@ export default function ResumePage() {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-            className="jakes-serif max-w-205 w-full bg-white shadow-2xl p-12 md:p-14 print-shadow-none print-border-none print-p-0 print-w-full min-h-262.5 flex flex-col justify-between text-black text-[13px] leading-relaxed"
+            className="jakes-serif max-w-205 w-full bg-white shadow-2xl p-5 sm:p-10 md:p-14 print-shadow-none print-border-none print-p-0 print-w-full min-h-262.5 flex flex-col justify-between text-black text-[13px] leading-relaxed relative z-10"
         >
           <div>
             {/* Heading Section */}
@@ -291,13 +347,13 @@ export default function ResumePage() {
                 Education
               </h2>
               {/* resumeSubheading format */}
-              <div className="flex justify-between items-baseline text-[13px] mb-0.5">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline text-[13px] mb-0.5">
                 <span className="font-bold">Sardar Patel Institute of Technology</span>
-                <span>Mumbai, India</span>
+                <span className="text-gray-600 sm:text-black italic sm:not-italic">Mumbai, India</span>
               </div>
-              <div className="flex justify-between items-baseline text-[12px] text-gray-800 italic">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline text-[12px] text-gray-800 italic">
                 <span>B.Tech in Electronics &amp; Telecommunication (GPA: 8.34/10) | Minor in Computer Engineering</span>
-                <span>Aug. 2022 – May 2026</span>
+                <span className="not-italic sm:italic text-gray-600 sm:text-gray-800">Aug. 2022 – May 2026</span>
               </div>
             </motion.section>
 
@@ -310,11 +366,11 @@ export default function ResumePage() {
               <div className="space-y-3">
                 {/* Job 1 */}
                 <div>
-                  <div className="flex justify-between items-baseline text-[13px] mb-0.5">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline text-[13px] mb-0.5">
                     <span className="font-bold">Machine Learning Intern</span>
-                    <span>Jan. 2026 – Present</span>
+                    <span className="text-gray-600 sm:text-black italic sm:not-italic">Jan. 2026 – Present</span>
                   </div>
-                  <div className="flex justify-between items-baseline text-[12px] text-gray-800 italic mb-1">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline text-[12px] text-gray-800 italic mb-1">
                     <span>edept</span>
                     <span>Mumbai, India</span>
                   </div>
@@ -327,11 +383,11 @@ export default function ResumePage() {
 
                 {/* Job 2 */}
                 <div>
-                  <div className="flex justify-between items-baseline text-[13px] mb-0.5">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline text-[13px] mb-0.5">
                     <span className="font-bold">Hackathon Problem Setter &amp; Curriculum Designer</span>
-                    <span>Aug. 2025 – Dec. 2025</span>
+                    <span className="text-gray-600 sm:text-black italic sm:not-italic">Aug. 2025 – Dec. 2025</span>
                   </div>
-                  <div className="flex justify-between items-baseline text-[12px] text-gray-800 italic mb-1">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline text-[12px] text-gray-800 italic mb-1">
                     <span>edept</span>
                     <span>Mumbai, India</span>
                   </div>
@@ -353,7 +409,7 @@ export default function ResumePage() {
               <div className="space-y-3">
                 {/* Project 1 */}
                 <div>
-                  <div className="flex justify-between items-baseline text-[13px] mb-1">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline text-[13px] mb-1 gap-1 sm:gap-0">
                     <div>
                       <span className="font-bold">ObservoAI</span>
                       <span className="text-[12.5px] text-black"> | </span>
@@ -374,7 +430,7 @@ export default function ResumePage() {
                         ))}
                       </span>
                     </div>
-                    <div className="flex items-center space-x-1 text-[12px] text-gray-800">
+                    <div className="flex items-center flex-wrap gap-x-1 text-[12px] text-gray-800">
                       <a href="https://github.com/prasanna192005/ObservoAI" target="_blank" rel="noreferrer" className="hover:text-[#FF1F00] transition-colors underline underline-offset-1">
                         Github
                       </a>
@@ -383,7 +439,7 @@ export default function ResumePage() {
                         Demo
                       </a>
                       <span className="text-gray-400">|</span>
-                      <span className="text-black text-[12.5px] ml-0.5">March 2025</span>
+                      <span className="text-black text-[12.5px]">March 2025</span>
                     </div>
                   </div>
                   <ul className="space-y-0.5">
@@ -395,7 +451,7 @@ export default function ResumePage() {
 
                 {/* Project 2 */}
                 <div>
-                  <div className="flex justify-between items-baseline text-[13px] mb-1">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline text-[13px] mb-1 gap-1 sm:gap-0">
                     <div>
                       <span className="font-bold">AKSHAR</span>
                       <span className="text-[12.5px] text-black"> | </span>
@@ -416,7 +472,7 @@ export default function ResumePage() {
                         ))}
                       </span>
                     </div>
-                    <div className="flex items-center space-x-1 text-[12px] text-gray-800">
+                    <div className="flex items-center flex-wrap gap-x-1 text-[12px] text-gray-800">
                       <a href="https://github.com/prasanna192005/project-akshar" target="_blank" rel="noreferrer" className="hover:text-[#FF1F00] transition-colors underline underline-offset-1">
                         Github
                       </a>
@@ -425,7 +481,7 @@ export default function ResumePage() {
                         Live
                       </a>
                       <span className="text-gray-400">|</span>
-                      <span className="text-black text-[12.5px] ml-0.5">Jan. 2026</span>
+                      <span className="text-black text-[12.5px]">Jan. 2026</span>
                     </div>
                   </div>
                   <ul className="space-y-0.5">
@@ -437,7 +493,7 @@ export default function ResumePage() {
 
                 {/* Project 3 */}
                 <div>
-                  <div className="flex justify-between items-baseline text-[13px] mb-1">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline text-[13px] mb-1 gap-1 sm:gap-0">
                     <div>
                       <span className="font-bold">MyBuddy</span>
                       <span className="text-[12.5px] text-black"> | </span>
@@ -458,12 +514,12 @@ export default function ResumePage() {
                         ))}
                       </span>
                     </div>
-                    <div className="flex items-center space-x-1 text-[12px] text-gray-800">
+                    <div className="flex items-center flex-wrap gap-x-1 text-[12px] text-gray-800">
                       <a href="https://github.com/prasanna192005/My-Buddy" target="_blank" rel="noreferrer" className="hover:text-[#FF1F00] transition-colors underline underline-offset-1">
                         Github
                       </a>
                       <span className="text-gray-400">|</span>
-                      <span className="text-black text-[12.5px] ml-0.5">May 2025</span>
+                      <span className="text-black text-[12.5px]">May 2025</span>
                     </div>
                   </div>
                   <ul className="space-y-0.5">
@@ -475,7 +531,7 @@ export default function ResumePage() {
 
                 {/* Project 4 */}
                 <div>
-                  <div className="flex justify-between items-baseline text-[13px] mb-1">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline text-[13px] mb-1 gap-1 sm:gap-0">
                     <div>
                       <span className="font-bold">Anchor19</span>
                       <span className="text-[12.5px] text-black"> | </span>
@@ -496,7 +552,7 @@ export default function ResumePage() {
                         ))}
                       </span>
                     </div>
-                    <div className="flex items-center space-x-1 text-[12px] text-gray-800">
+                    <div className="flex items-center flex-wrap gap-x-1 text-[12px] text-gray-800">
                       <a href="https://github.com/prasanna192005/anchor19" target="_blank" rel="noreferrer" className="hover:text-[#FF1F00] transition-colors underline underline-offset-1">
                         Github
                       </a>
@@ -505,7 +561,7 @@ export default function ResumePage() {
                         Live
                       </a>
                       <span className="text-gray-400">|</span>
-                      <span className="text-black text-[12.5px] ml-0.5">March 2026</span>
+                      <span className="text-black text-[12.5px]">March 2026</span>
                     </div>
                   </div>
                   <ul className="space-y-0.5">
@@ -526,11 +582,11 @@ export default function ResumePage() {
               <div className="space-y-3">
                 {/* Role 1 */}
                 <div>
-                  <div className="flex justify-between items-baseline text-[13px] mb-0.5">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline text-[13px] mb-0.5">
                     <span className="font-bold">Technical Head</span>
-                    <span>Sep. 2024 – Sep. 2025</span>
+                    <span className="text-gray-600 sm:text-black italic sm:not-italic">Sep. 2024 – Sep. 2025</span>
                   </div>
-                  <div className="flex justify-between items-baseline text-[12px] text-gray-800 italic mb-1">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline text-[12px] text-gray-800 italic mb-1">
                     <span>WIE IEEE SPIT</span>
                     <span>Mumbai, India</span>
                   </div>
@@ -542,11 +598,11 @@ export default function ResumePage() {
 
                 {/* Role 2 */}
                 <div>
-                  <div className="flex justify-between items-baseline text-[13px] mb-0.5">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline text-[13px] mb-0.5">
                     <span className="font-bold">Head of Creatives</span>
-                    <span>Sep. 2023 – Sep. 2024</span>
+                    <span className="text-gray-600 sm:text-black italic sm:not-italic">Sep. 2023 – Sep. 2024</span>
                   </div>
-                  <div className="flex justify-between items-baseline text-[12px] text-gray-800 italic mb-1">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline text-[12px] text-gray-800 italic mb-1">
                     <span>Oculus S.P.I.T.</span>
                     <span>Mumbai, India</span>
                   </div>

@@ -12,6 +12,7 @@ import VelocityMarquee from "@/components/VelocityMarquee";
 import Navbar from "@/components/Navbar";
 import ScrollChakra from "@/components/ScrollChakra";
 import ContactSectionNew from "@/components/sections/ContactSectionNew";
+import Preloader from "@/components/Preloader";
 
 export default function Home() {
   useEffect(() => {
@@ -20,10 +21,19 @@ export default function Home() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ route: window.location.pathname })
     }).catch(console.error);
+
+    // Custom console greeting
+    console.log(
+      `%cnamaste\n%c[ git-prasanna192005 ]\n\n%cHi there! Thanks for inspecting my portfolio.\n\nStack:\n- Next.js 16 + React 19\n- Tailwind CSS v4\n- Framer Motion\n\nCreated by Prasanna. Enjoy the stay!\n`,
+      "font-family: Georgia, serif; font-size: 24px; font-weight: bold; color: #FF1F00;",
+      "font-family: monospace; font-size: 11px; color: #666; font-style: italic;",
+      "font-family: monospace; font-size: 13px; color: #121212;"
+    );
   }, []);
 
   return (
     <main className="min-h-screen w-full font-sans flex flex-col selection:bg-white selection:text-black scroll-smooth">
+      {/* <Preloader /> */}
       <Navbar />
       <ScrollChakra />
       {/* Hero Intro */}

@@ -129,7 +129,7 @@ const ShowcaseSection = () => {
       <div className="absolute inset-0 opacity-[0.05] pointer-events-none jaali-grid scale-150"></div>
 
       {/* Ethereal Tree of Life (Kalpavriksha) Watermark */}
-      <div className="absolute -bottom-20 -right-20 w-[400px] h-[500px] md:w-[600px] md:h-[800px] opacity-[0.07] pointer-events-none z-0 rotate-[-10deg]">
+      <div className="absolute -bottom-20 -right-20 w-100 h-125 md:w-150 md:h-200 opacity-[0.07] pointer-events-none z-0 rotate-[-10deg]">
         <svg viewBox="0 0 200 300" className="w-full h-full fill-none stroke-white stroke-[0.5]">
            {/* Trunk */}
            <path d="M100 300 Q100 250 100 200 Q100 150 120 100" />
@@ -161,7 +161,7 @@ const ShowcaseSection = () => {
         <div className="relative flex flex-col items-center">
           <div 
             ref={containerRef}
-            className="relative w-[280px] h-[230px] sm:w-[350px] sm:h-[280px] md:w-[500px] md:h-[350px] lg:w-[550px] lg:h-[400px] select-none touch-none"
+            className="relative w-70 h-57.5 sm:w-87.5 sm:h-70 md:w-125 md:h-87.5 lg:w-137.5 lg:h-100 select-none touch-none"
           >
             
             {/* Metadata Labels (Precisely Aligned to Polygon Vertices) */}
@@ -244,7 +244,7 @@ const ShowcaseSection = () => {
 
             {/* Hanging Lotus Bell (Center Top) */}
             <div className="absolute -top-24 left-1/2 -translate-x-1/2 h-24 w-10 flex flex-col items-center pointer-events-none">
-               <div className="w-px h-full bg-gradient-to-b from-transparent to-[#FDFBF7]/40 border-dashed border-l" />
+               <div className="w-px h-full bg-linear-to-b from-transparent to-[#FDFBF7]/40 border-dashed border-l" />
                <svg viewBox="0 0 100 100" className="w-6 h-6 fill-[#FDFBF7]">
                   <path d="M50 0 L100 50 L50 100 L0 50 Z" />
                </svg>

@@ -54,6 +54,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
     "05": "bg-gradient-to-br from-[#004D40] via-[#00796B] to-[#00251A]",
     "06": "bg-gradient-to-br from-[#1A237E] via-[#3F51B5] to-[#0D1340]",
     "07": "bg-gradient-to-br from-[#4A148C] via-[#7B1FA2] to-[#250352]",
+    "08": "bg-gradient-to-br from-[#1B5E20] via-[#00C853] to-[#072B0D]",
   };
   const bgColor = bgColors[project.id] || "bg-gradient-to-br from-[#8C1B1B] via-[#C62828] to-[#500C0C]";
 

@@ -138,7 +138,7 @@ export const projects: Project[] = [
     id: "06", 
     title: "Pulse", 
     category: "Real-time Systems", 
-    year: "2024", 
+    year: "2026", 
     desc: "A completely FREE, low-latency live polling alternative to expensive paid tools like Slido, Mentimeter, and Poll Everywhere.", 
     longDesc: "Pulse is a **low-latency, zero-auth live polling engine** built because charging a __$50/month subscription__ to sync a few JSON payloads in a silent conference room is **absolute highway robbery**. Under the hood, Pulse orchestrates live session state and response aggregates using __Firebase Realtime Database’s native websocket listeners__, keeping presenters and participants in lockstep with **sub-100ms state updates**. The presenter canvas boasts dynamically scaling, art-directed layouts that continuously recalculate viewport aspect ratios, coupled with a client-side **vector-to-raster engine** for one-click high-res PNG slide exports.",
     tech: ["Next.js 16", "Tailwind CSS 4", "Firebase RTDB", "Firebase Auth", "Lucide Icons"],
@@ -160,7 +160,7 @@ export const projects: Project[] = [
     id: "07", 
     title: "QR19", 
     category: "Developer Utility", 
-    year: "2024", 
+    year: "2025", 
     desc: "Privacy-focused QR code generator with professional styling, logo support, and high-resolution PNG/SVG export—built with React, Vite, and Tailwind.", 
     longDesc: "QR19 is a **precision QR code engine** built because generating a clean vector graphic shouldn't require dodging full-screen pop-up ads and tracking scripts. Adhering to a strict zero-tracking policy, it runs entirely in the browser to deliver **high-fidelity, production-ready assets** directly to your storage. It integrates __pixel-perfect customizations__ including logo excavation logic, custom visual palettes, and dual vector/raster downloads, creating a clean, focused utility that values both your design details and your data privacy.",
     tech: ["React", "Vite", "TailwindCSS", "TypeScript", "Canvas API"],
@@ -179,6 +179,28 @@ export const projects: Project[] = [
     logicDesc: "Processes QR matrices entirely client-side using the Canvas API. Logo framing crops canvas layers dynamically, applying clean boundary boxes around logos to prevent scanning conflicts and data loss.",
     aestheticDesc: "Applies a minimalist, dark studio workspace interface with granular slider controls, real-time visual canvas feedback, and color chip selection nodes for designer productivity."
   },
+  { 
+    id: "08", 
+    title: "Code We Met", 
+    category: "Collaborative IDE & DSA Playground", 
+    year: "2025", 
+    desc: "High-performance collaborative playground merging live WebRTC interviews, real-time Monaco IDE sync, and gamified algorithm campaigns.", 
+    longDesc: "Code We Met (powered by codeCRUX) is an all-in-one **collaborative hiring and DSA playground** designed because fragmenting applications, live interviews, and DSA preparation across multiple platforms kills recruiter efficiency and developer flow. Under the hood, the platform combines a **real-time collaborative IDE** powered by __Monaco Editor__ with built-in, low-latency __WebRTC video calls__, dynamic chat drawers, and step-by-step __visual algorithm simulators__. Whether you're a recruiter staging high-fidelity, multi-language coding trials or a candidate scaling gamified sorting/graph levels, it bridges the gap between learning and getting hired.", 
+    tech: ["Next.js", "WebRTC", "Socket.io", "Monaco Editor", "Express", "TailwindCSS", "Framer Motion"], 
+    url: "https://github.com/prasanna192005/code-we-met", 
+    live: null, 
+    color: "#00C853", 
+    role: "Lead Full-Stack & Collaborative Systems Architect", 
+    timeframe: "Independent Product Release (2024)", 
+    demo: "https://www.youtube.com/watch?v=dZB7tJsGHVs", 
+    features: [ 
+      "Live Collaborative IDE: Write, execute, and debug code in real time with candidates across multiple languages utilizing a custom-configured **Monaco Editor** interface.", 
+      "Built-in WebRTC Signaling: Conduct live high-definition **video calls and chat** directly inside the editor container, completely bypassing external Zoom/Meet links.", 
+      "Gamified DSA Journeys: Step-by-step simulations for sorting, searching, and graph algorithms, integrated into a **story-based campaign** with coding battles.", 
+      "AI-Powered Matching: Auto-extract candidate capabilities to deliver **semantic job recommendations** and map real-time progress graphs.", 
+      "Recruiter Dashboard: Seamlessly stage active job listings, schedule technical calls, and review **candidate evaluation logs** on a unified panel." 
+    ], 
+    logicDesc: "The architecture orchestrates collaborative workspace states via a central **Node.js Socket.io server** for sub-100ms keypress synchronization, using __WebRTC peer connections__ for high-fidelity audio/video streams. DSA visualization coordinates are computed dynamically, pushing state frames into localized React update queues for butter-smooth algorithm animations.", 
+    aestheticDesc: "Features a sleek **dark gaming-terminal HUD** with neon-green status badges, glowing code editor containers, and responsive custom control panels that mimic a modern console cockpit, elevating candidate focus during high-pressure coding interviews." 
+  },
 ];
-
-

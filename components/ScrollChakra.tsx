@@ -1,9 +1,12 @@
 "use client";
 
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 const ScrollChakra = () => {
   const { scrollY, scrollYProgress } = useScroll();
+  const pathname = usePathname();
+  const isHome = pathname === "/" || !pathname;
   
   // Smooth the scroll progress for rotation
   const smoothProgress = useSpring(scrollYProgress, {
@@ -14,27 +17,51 @@ const ScrollChakra = () => {
 
   const rotate = useTransform(smoothProgress, [0, 1], [0, 360]);
 
-  // Dynamic Color Transition
+  // Home Page Color Transition
   // 1. White on Hero (#FF1F00)
   // 2. Red on Paper Cream (#FDFBF7)
   // 3. White on Contact Blue (#2563EB)
-  const themeColor = useTransform(
+  const homeThemeColor = useTransform(
     scrollYProgress, 
     [0, 0.05, 0.9, 0.98], 
     ["#FFFFFF", "#FF1F00", "#FF1F00", "#FFFFFF"]
   );
   
-  const textColor = useTransform(
+  const homeTextColor = useTransform(
     scrollYProgress, 
     [0, 0.05, 0.9, 0.98], 
     ["rgba(255,255,255,0.4)", "rgba(255,31,0,0.4)", "rgba(255,31,0,0.4)", "rgba(255,255,255,0.4)"]
   );
 
-  const innerCircleColor = useTransform(
+  const homeInnerCircleColor = useTransform(
     scrollYProgress,
     [0, 0.05, 0.9, 0.98],
     ["#FF1F00", "#FFFFFF", "#FFFFFF", "#FF1F00"]
   );
+
+  // Light Pages Transition (Resume, Projects, Design System, Font Showcase)
+  // Maintains Red (#FF1F00) with White inner circle to contrast with Patrika Cream background (#FDFBF7)
+  const lightThemeColor = useTransform(
+    scrollYProgress, 
+    [0, 1], 
+    ["#FF1F00", "#FF1F00"]
+  );
+  
+  const lightTextColor = useTransform(
+    scrollYProgress, 
+    [0, 1], 
+    ["rgba(255,31,0,0.4)", "rgba(255,31,0,0.4)"]
+  );
+
+  const lightInnerCircleColor = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["#FFFFFF", "#FFFFFF"]
+  );
+
+  const themeColor = isHome ? homeThemeColor : lightThemeColor;
+  const textColor = isHome ? homeTextColor : lightTextColor;
+  const innerCircleColor = isHome ? homeInnerCircleColor : lightInnerCircleColor;
 
   return (
     <div className="fixed bottom-8 right-8 z-[90] pointer-events-none flex flex-col items-center group">

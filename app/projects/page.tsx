@@ -85,6 +85,7 @@ export default function ProjectsPage() {
                 "05": "bg-[#00796B]",
                 "06": "bg-[#3F51B5]",
                 "07": "bg-[#7B1FA2]",
+                "08": "bg-[#1B5E20]",
               };
               const bgColor = cardColors[project.id] || "bg-[#C62828]";
               
