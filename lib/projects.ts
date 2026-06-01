@@ -69,7 +69,7 @@ export const projects: Project[] = [
     id: "03", 
     title: "AKSHAR", 
     category: "Tactical Multiplayer System", 
-    year: "2024", 
+    year: "2026", 
     desc: "Tactical multiplayer typing battle engine with sub-100ms Firebase synchronization and custom ability payloads.", 
     longDesc: "AKSHAR (अक्षर — The Imperishable / The Letter) is a high-performance, **real-time typing engine** built on a __distributed state machine__. It transforms mechanical typing into a **high-stakes, tactical hero-racer**. The system coordinates **sub-100ms synchronization** across players, handles transient player ability payloads (blurs, scrambles, redactions) via **atomic database transactions**, compiles lightweight **SVG telemetry charts**, and implements **schema.org semantic schemas** alongside an __LLM crawler manifest (/llms.txt)__ for maximum AI/LLM discoverability.",
     tech: ["Next.js", "Firebase", "TypeScript", "TailwindCSS", "Framer Motion", "LLM Optimization"],
