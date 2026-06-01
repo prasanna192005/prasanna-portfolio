@@ -94,7 +94,7 @@ export const projects: Project[] = [
     id: "04", 
     title: "Seedhe CMD", 
     category: "CLI Systems", 
-    year: "2024", 
+    year: "2025", 
     desc: "A terminal-native AI cheatsheet built because switching tabs to search StackOverflow is Seedhe Maut to developer flow.", 
     longDesc: "Designed for **keyboard purists** who value raw execution speed, Seedhe CMD brings **rapid-fire commands** and in-terminal __Gemini-powered guidance__ straight to your shell. It eliminates the friction of opening a browser to find a forgotten Git flag, acting like a high-octane rap flow for your dev environment. It is the ultimate **'Bina faltu bakwaas, Seedhe kaam'** CLI companion for command-line navigation—engineered as a native shell utility long __before modern IDEs__ integrated built-in AI chat panels.",
     tech: ["Node.js", "Gemini API", "CLI", "Developer Tooling"],

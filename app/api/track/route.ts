@@ -8,7 +8,7 @@ const redis = new Redis({
 
 export async function POST(req: Request) {
   try {
-    const { route } = await req.json();
+    const { route, isNewSession, isBounceResolved } = await req.json();
     
     // Increment total views
     await redis.incr("page_views");
@@ -16,6 +16,14 @@ export async function POST(req: Request) {
     // Increment route specific views
     if (route) {
       await redis.hincrby("route_views", route, 1);
+    }
+
+    if (isNewSession) {
+      await redis.incr("total_sessions");
+    }
+
+    if (isBounceResolved) {
+      await redis.incr("resolved_bounces");
     }
     
     return NextResponse.json({ success: true });

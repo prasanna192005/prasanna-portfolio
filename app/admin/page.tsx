@@ -75,13 +75,24 @@ export default async function AdminPage() {
   let views = 0;
   let messages = 0;
   let routeViews: Record<string, string> = {};
+  let totalSessions = 0;
+  let resolvedBounces = 0;
 
   try {
     views = await redis.get<number>("page_views") || 0;
     messages = await redis.get<number>("messages_sent") || 0;
     routeViews = await redis.hgetall<Record<string, string>>("route_views") || {};
+    totalSessions = await redis.get<number>("total_sessions") || 0;
+    resolvedBounces = await redis.get<number>("resolved_bounces") || 0;
   } catch (error) {
     console.error("Failed to fetch admin data:", error);
+  }
+
+  // Calculate dynamic bounce rate
+  let calculatedBounceRate = 24; // Default sensible average if no sessions yet
+  if (totalSessions > 0) {
+    const bounces = Math.max(0, totalSessions - resolvedBounces);
+    calculatedBounceRate = Math.round((bounces / totalSessions) * 100);
   }
 
   const sortedRoutes = Object.entries(routeViews)
@@ -154,8 +165,12 @@ export default async function AdminPage() {
             </div>
 
             <div className="flex items-baseline gap-3">
-              <span className="text-7xl md:text-8xl font-serif font-light text-[#E91E63] leading-none">{Math.floor(views * 0.7)}</span>
-              <span className="text-sm text-neutral-500 font-serif italic">est.</span>
+              <span className="text-7xl md:text-8xl font-serif font-light text-[#E91E63] leading-none">
+                {totalSessions > 0 ? totalSessions : Math.floor(views * 0.7)}
+              </span>
+              <span className="text-sm text-neutral-500 font-serif italic">
+                {totalSessions > 0 ? "actual" : "est."}
+              </span>
             </div>
           </div>
 
@@ -175,8 +190,10 @@ export default async function AdminPage() {
             </div>
 
             <div className="flex items-baseline gap-3">
-              <span className="text-7xl md:text-8xl font-serif font-light text-[#121212] leading-none">24%</span>
-              <span className="text-sm text-neutral-500 font-serif italic">avg.</span>
+              <span className="text-7xl md:text-8xl font-serif font-light text-[#121212] leading-none">{calculatedBounceRate}%</span>
+              <span className="text-sm text-neutral-500 font-serif italic">
+                {totalSessions > 0 ? "live" : "avg."}
+              </span>
             </div>
           </div>
 
