@@ -55,6 +55,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
     "06": "bg-gradient-to-br from-[#1A237E] via-[#3F51B5] to-[#0D1340]",
     "07": "bg-gradient-to-br from-[#4A148C] via-[#7B1FA2] to-[#250352]",
     "08": "bg-gradient-to-br from-[#1B5E20] via-[#00C853] to-[#072B0D]",
+    "09": "bg-gradient-to-br from-[#880E4F] via-[#AD1457] to-[#4A0022]",
   };
   const bgColor = bgColors[project.id] || "bg-gradient-to-br from-[#8C1B1B] via-[#C62828] to-[#500C0C]";
 
@@ -177,7 +178,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
             </div>
 
             {/* Technical Metadata Bar (White theme) */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-32 pt-12 border-t border-white/20 relative z-10 w-full text-left">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-32 pt-12 border-t border-white/20 relative z-10 w-full text-left">
               <div>
                 <span className="block text-[10px] font-pixel text-white/60 uppercase tracking-[0.3em] mb-4">Architecture</span>
                 <span className="text-sm font-bold uppercase tracking-tight">{project.role || "Lead Engineering"}</span>
@@ -192,13 +193,6 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
                   {project.tech.map((t) => (
                     <span key={t} className="text-[9px] font-mono border border-white/20 px-2 py-0.5 rounded-sm opacity-80 text-white uppercase">{t}</span>
                   ))}
-                </div>
-              </div>
-              <div>
-                <span className="block text-[10px] font-pixel text-white/60 uppercase tracking-[0.3em] mb-4">Deployment</span>
-                <div className="flex items-center space-x-2">
-                   <div className="w-2 h-2 bg-green-400 rounded-full animate-ping"></div>
-                   <span className="text-sm font-bold uppercase tracking-tight">Active Node</span>
                 </div>
               </div>
             </div>
@@ -225,6 +219,44 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
             <p className="text-lg md:text-2xl font-sans leading-relaxed text-[#121212]/80 mb-20 tracking-wide font-normal">
               {renderHighlightedText(project.longDesc)}
             </p>
+
+            {/* Local Video Demo Player */}
+            {project.demo && project.demo.endsWith('.mp4') && (
+              <div className="mb-24 w-full flex flex-col space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-3">
+                    <span className="w-2 h-2 rounded-full bg-[#FF1F00] animate-pulse"></span>
+                    <span className="font-pixel text-[10px] text-black/50 uppercase tracking-[0.3em]">Telemetry // Live Demo Playback</span>
+                  </div>
+                  <span className="font-mono text-[9px] text-black/40 uppercase">Format: MP4 / H.264</span>
+                </div>
+                <div className="relative w-full rounded-sm overflow-hidden border border-black/10 bg-[#121212] shadow-2xl group/video">
+                  {/* Subtle inner gold/patrika border frame for luxury look */}
+                  <div className="absolute inset-4 border border-[#FFE082]/10 pointer-events-none z-10 rounded-sm"></div>
+                  
+                  {/* Temple Corner Brackets (Light Accents) inside video container */}
+                  <div className="absolute top-6 left-6 w-16 h-16 opacity-30 pointer-events-none z-10">
+                    <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-[#FFE082] stroke-[0.8]">
+                      <path d="M0 0 L100 0 M0 0 L0 100" />
+                      <circle cx="0" cy="0" r="4" className="fill-[#FFE082] stroke-none" />
+                    </svg>
+                  </div>
+                  <div className="absolute top-6 right-6 w-16 h-16 opacity-30 pointer-events-none scale-x-[-1] z-10">
+                    <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-[#FFE082] stroke-[0.8]">
+                      <path d="M0 0 L100 0 M0 0 L0 100" />
+                      <circle cx="0" cy="0" r="4" className="fill-[#FFE082] stroke-none" />
+                    </svg>
+                  </div>
+                  
+                  <video 
+                    src={project.demo} 
+                    controls 
+                    playsInline
+                    className="w-full aspect-[16/9] object-contain relative z-0"
+                  />
+                </div>
+              </div>
+            )}
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-24 border-t border-black/10 pt-16">
               <div className="space-y-8">

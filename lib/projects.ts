@@ -74,10 +74,11 @@ export const projects: Project[] = [
     longDesc: "AKSHAR (अक्षर — The Imperishable / The Letter) is a high-performance, **real-time typing engine** built on a __distributed state machine__. It transforms mechanical typing into a **high-stakes, tactical hero-racer**. The system coordinates **sub-100ms synchronization** across players, handles transient player ability payloads (blurs, scrambles, redactions) via **atomic database transactions**, compiles lightweight **SVG telemetry charts**, and implements **schema.org semantic schemas** alongside an __LLM crawler manifest (/llms.txt)__ for maximum AI/LLM discoverability.",
     tech: ["Next.js", "Firebase", "TypeScript", "TailwindCSS", "Framer Motion", "LLM Optimization"],
     url: "https://github.com/prasanna192005/project-akshar",
-    live: "https://akshar19.vercel.app",
+    live: "https://playakshar.xyz",
     color: "#FFD700",
     role: "Lead Systems & Gameplay Architect",
     timeframe: "Operational Release (2024)",
+    demo: "/akshar-demo.mp4",
     features: [
       "Optimistic Distributed Sync: Sub-100ms reactive state synchronization leveraging local 60fps loops and server-stamped conflict resolution.",
       "Transient State Ability Payloads: Deploy tactical counters (Vayu warp, Agni blur, Sutra shield, Yantra freeze) resolved through atomic database transactions.",
@@ -202,5 +203,28 @@ export const projects: Project[] = [
     ], 
     logicDesc: "The architecture orchestrates collaborative workspace states via a central **Node.js Socket.io server** for sub-100ms keypress synchronization, using __WebRTC peer connections__ for high-fidelity audio/video streams. DSA visualization coordinates are computed dynamically, pushing state frames into localized React update queues for butter-smooth algorithm animations.", 
     aestheticDesc: "Features a sleek **dark gaming-terminal HUD** with neon-green status badges, glowing code editor containers, and responsive custom control panels that mimic a modern console cockpit, elevating candidate focus during high-pressure coding interviews." 
+  },
+  { 
+    id: "09", 
+    title: "myTV", 
+    category: "Local Network Media Streamer", 
+    year: "2026", 
+    desc: "Fast, seekable, dependency-free local network media streamer built with Next.js 16 and Tailwind CSS v4, supporting phone remote control casting.", 
+    longDesc: "myTV is a lightweight, zero-dependency **local network media streamer** designed to index and cast high-definition video collections to any device. It bypasses the overhead of heavy media servers (Plex, Emby) by implementing a custom **HTTP Range-Request stream engine** in Next.js Route Handlers. The system couples recursive local folder crawling with a **phone pairing remote controller** over mobile sockets, allowing users to scan a QR code on their Smart TV and cast, play, seek, and query their local library directly from their phone browser.", 
+    tech: ["Next.js 16", "React 19", "Tailwind CSS 4", "Node.js Streams", "HTTP Range API", "WebVTT Subtitles", "Secure Sandboxing"], 
+    url: "https://github.com/prasanna192005/myTv", 
+    live: null, 
+    color: "#E91E63", 
+    role: "Lead Architect & Systems Designer", 
+    timeframe: "Operational Release (2026)", 
+    features: [ 
+      "Seekable Stream Engine: Custom Node.js streams rendering HTTP 206 Partial Content range responses to handle seek actions on massive **20GB+ files** smoothly.", 
+      "Phone Pairing Remote: QR-code pairing matrix to cast videos, seek, control volume, and use **mobile keyboards** to query library titles.", 
+      "SRT to WebVTT Compiler: On-the-fly parsing that converts subtitle files into **WebVTT formats** and syncs display parameters across keyboard hotkeys and remote controls.", 
+      "Smart Library Caching: Persists directory history metadata to enable **single-click folder switching** and local storage playback state tracking.", 
+      "Stand-alone Slideshow: Scans image files and renders high-res slideshow arrays controlled directly from a **smartphone dashboard**." 
+    ], 
+    logicDesc: "Handles recursive file crawls locally via Node.js file system API, indexing video, subtitle, and image paths dynamically. Video streams use chunked buffer response streams to bypass memory locks, while the remote control synchronizes casting actions via lightweight in-memory pairing channels.", 
+    aestheticDesc: "Implements a high-contrast dark television grid UI, combining clean monospaced playback overlay displays, bold red progress meters, and responsive player sandboxes for comfortable viewing." 
   },
 ];

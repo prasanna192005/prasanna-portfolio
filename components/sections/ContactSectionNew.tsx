@@ -190,16 +190,19 @@ const ContactSectionNew = () => {
            {/* Social Ledger */}
            <div className="flex flex-col space-y-10 pl-2">
               <div className="grid grid-cols-2 gap-8">
-                 {socials.map((social, i) => (
-                    <Link 
-                      key={i} 
-                      href={social.href}
-                      className="group/link flex flex-col items-start border-b border-white/10 pb-4 hover:border-white transition-all"
-                    >
-                       <span className="font-pixel text-[7px] text-white/30 uppercase tracking-widest mb-2 group-hover/link:text-white transition-colors">{social.label}</span>
-                       <span className="text-xl font-serif text-white">{social.name}</span>
-                    </Link>
-                 ))}
+                  {socials.map((social, i) => (
+                     <Link 
+                       key={i} 
+                       href={social.href}
+                       className="group/link flex flex-col items-start border-b border-white/10 pb-4 hover:border-white transition-all overflow-hidden"
+                     >
+                        <span className="font-pixel text-[7px] text-white/30 uppercase tracking-widest mb-2 group-hover/link:text-white transition-colors">{social.label}</span>
+                        <span className="text-xl font-serif text-white flex items-center space-x-2">
+                          <span>{social.name}</span>
+                          <span className="opacity-0 translate-x-[-8px] group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all duration-300">→</span>
+                        </span>
+                     </Link>
+                  ))}
               </div>
               
               {/* Secondary Metadata */}

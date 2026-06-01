@@ -53,15 +53,15 @@ const Navbar = () => {
                 { name: "About", path: "/#about" },
                 { name: "Contact", path: "/#contact" }
               ].map((item) => (
-                <Link 
+                 <Link 
                   key={item.name}
                   href={item.path} 
                   className={`hover:text-[#BF360C] transition-colors relative group/link ${pathname === item.path ? 'text-[#BF360C]' : ''}`}
                 >
                   {item.name}
                   {/* Subtle Flower Bindi on Hover/Active */}
-                  <div className={`absolute -bottom-3 left-1/2 -translate-x-1/2 transition-all duration-300 ${pathname === item.path ? 'opacity-100' : 'opacity-0 group-hover/link:opacity-40'}`}>
-                    <svg viewBox="0 0 100 100" className="w-2.5 h-2.5 fill-[#BF360C]">
+                  <div className={`absolute -bottom-3 left-1/2 -translate-x-1/2 transition-all duration-300 ${pathname === item.path ? 'opacity-100' : 'opacity-0 group-hover/link:opacity-60'}`}>
+                    <svg viewBox="0 0 100 100" className="w-2.5 h-2.5 fill-[#BF360C] transition-transform duration-700 group-hover/link:rotate-[120deg] group-hover/link:scale-125">
                       {[...Array(6)].map((_, i) => (
                         <path key={i} d="M50 50 Q60 30 50 15 Q40 30 50 50" transform={`rotate(${i * 60} 50 50)`} />
                       ))}
@@ -76,7 +76,7 @@ const Navbar = () => {
               className="ml-0.5 sm:ml-1 font-serif italic text-[10px] sm:text-xs text-[#BF360C] hover:text-[#FF1F00] transition-colors border-l border-[#BF360C]/10 pl-3 sm:pl-5 relative group/res"
             >
               Resume
-              <div className="absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 w-1 h-1 bg-[#BF360C] rotate-45 group-hover/res:scale-150 transition-transform"></div>
+              <div className="absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 w-1 h-1 bg-[#BF360C] rotate-45 group-hover/res:rotate-[135deg] group-hover/res:scale-[1.8] group-hover/res:bg-[#FF1F00] transition-all duration-500"></div>
             </Link>
           </nav>
         </div>

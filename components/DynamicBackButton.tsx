@@ -58,7 +58,9 @@ export default function DynamicBackButton({ href, label }: DynamicBackButtonProp
             color: textColor,
             borderColor: borderColor
           }}
-          className="group flex items-center space-x-4 backdrop-blur-md border pl-2 pr-6 py-2 rounded-full transition-all shadow-sm hover:shadow-xl"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="group flex items-center space-x-4 backdrop-blur-md border pl-2 pr-6 py-2 rounded-full transition-all shadow-sm hover:shadow-xl cursor-pointer"
         >
           <motion.div 
             style={{ backgroundColor: iconBg, color: iconColor }}

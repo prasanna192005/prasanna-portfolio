@@ -47,9 +47,12 @@ const ProjectsSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {projects.slice(0, 4).map((project, index) => {
-            const bgColors = ["bg-[#C62828]", "bg-[#1565C0]", "bg-[#2E7D32]", "bg-[#F57F17]"]; // Vibrant Indian Festive Colors
-            return (
+          {projects
+            .filter((p) => ["01", "02", "03", "09"].includes(p.id))
+            .sort((a, b) => ["01", "02", "03", "09"].indexOf(a.id) - ["01", "02", "03", "09"].indexOf(b.id))
+            .map((project, index) => {
+              const bgColors = ["bg-[#C62828]", "bg-[#1565C0]", "bg-[#2E7D32]", "bg-[#880E4F]"]; // Vibrant Indian Festive Colors
+              return (
             <div 
               key={project.id} 
               className={`group relative aspect-auto min-h-[340px] md:aspect-[16/10] ${bgColors[index]} p-6 md:p-8 flex flex-col justify-between hover:-translate-y-1 transition-transform duration-700 overflow-hidden text-left shadow-sm hover:shadow-xl`}

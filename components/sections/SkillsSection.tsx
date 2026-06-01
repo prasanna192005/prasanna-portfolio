@@ -62,7 +62,7 @@ const SkillsSection = () => {
           ].map((skill, index) => (
             <div 
               key={index} 
-              className="relative bg-[#FDFBF7] border border-[#BF360C]/30 px-6 py-3 rounded-xl shadow-sm hover:border-[#BF360C]/70 hover:-translate-y-1 hover:shadow-md transition-all duration-500 group"
+              className="relative bg-[#FDFBF7] border border-[#BF360C]/30 px-6 py-3 rounded-xl shadow-sm hover:border-[#BF360C]/70 hover:-translate-y-1 hover:scale-[1.03] active:scale-[0.97] hover:shadow-lg transition-all duration-500 group cursor-default select-none"
             >
               {/* Half-in Half-out Flower Wrapper (Masks the border behind it) */}
               <div className="absolute -top-3 -left-3 w-6 h-6 bg-white rounded-full flex items-center justify-center z-10">

@@ -223,11 +223,11 @@ export default function ResumePage() {
           <span className="text-[6vw] font-bold whitespace-nowrap leading-none tracking-widest text-[#FF1F00]" style={{ writingMode: "vertical-rl" }}>
             कर्मयोग
           </span>
-          <div className="h-20 w-[1px] bg-gradient-to-b from-[#FF1F00] to-transparent"></div>
+          <div className="h-20 w-px bg-linear-to-b from-[#FF1F00] to-transparent"></div>
         </div>
 
         <div className="absolute bottom-96 right-6 hidden xl:flex flex-col items-center space-y-4 opacity-[0.03] select-none">
-          <div className="h-20 w-[1px] bg-gradient-to-t from-[#FF1F00] to-transparent"></div>
+          <div className="h-20 w-1px bg-linear-to-t from-[#FF1F00] to-transparent"></div>
           <span className="text-[6vw] font-bold whitespace-nowrap leading-none tracking-widest text-[#FF1F00]" style={{ writingMode: "vertical-rl" }}>
             पुरुषार्थ
           </span>
@@ -477,7 +477,7 @@ export default function ResumePage() {
                         Github
                       </a>
                       <span className="text-gray-400">|</span>
-                      <a href="https://akshar19.vercel.app" target="_blank" rel="noreferrer" className="hover:text-[#FF1F00] transition-colors underline underline-offset-1">
+                      <a href="https://playakshar.xyz" target="_blank" rel="noreferrer" className="hover:text-[#FF1F00] transition-colors underline underline-offset-1">
                         Live
                       </a>
                       <span className="text-gray-400">|</span>

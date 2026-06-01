@@ -112,8 +112,8 @@ export default function ExperienceSection() {
           >
             <div className="space-y-16">
               {education.map((edu, i) => (
-                <div key={i} className="relative pl-8 border-l border-white/20">
-                  <div className="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-[#D4E09B] rotate-45" />
+                <div key={i} className="relative pl-8 border-l border-white/20 group/edu">
+                  <div className="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-[#D4E09B] rotate-45 group-hover/edu:rotate-[135deg] group-hover/edu:scale-[1.6] transition-all duration-500" />
                   
                   <div className="mb-4">
                     <span className="font-pixel text-[9px] text-[#D4E09B]/70 tracking-widest block mb-2">{edu.year}</span>
@@ -145,10 +145,10 @@ export default function ExperienceSection() {
             
             <div className="space-y-14">
               {experience.roles.map((role, i) => (
-                <div key={i} className="relative pl-10">
+                <div key={i} className="relative pl-10 group/role">
                   {/* Ornate Marker */}
-                  <div className="absolute left-0 top-1.5 w-4 h-4 flex items-center justify-center border border-white/30">
-                    <div className={`w-1.5 h-1.5 rotate-45 ${i === 0 ? "bg-[#90E0EF]" : "bg-white/40"}`} />
+                  <div className="absolute left-0 top-1.5 w-4 h-4 flex items-center justify-center border border-white/30 group-hover/role:rotate-[45deg] group-hover/role:border-[#90E0EF] transition-all duration-500">
+                    <div className={`w-1.5 h-1.5 rotate-45 ${i === 0 ? "bg-[#90E0EF]" : "bg-white/40"} group-hover/role:bg-[#90E0EF] group-hover/role:scale-[1.3] transition-all duration-300`} />
                   </div>
                   
                   <div className="mb-3">
