@@ -16,12 +16,6 @@ import Preloader from "@/components/Preloader";
 
 export default function Home() {
   useEffect(() => {
-    fetch('/api/track', { 
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ route: window.location.pathname })
-    }).catch(console.error);
-
     // Custom console greeting
     console.log(
       `%cnamaste\n%c[ git-prasanna192005 ]\n\n%cHi there! Thanks for inspecting my portfolio.\n\nStack:\n- Next.js 16 + React 19\n- Tailwind CSS v4\n- Framer Motion\n\nCreated by Prasanna. Enjoy the stay!\n`,

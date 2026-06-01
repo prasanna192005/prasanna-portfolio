@@ -67,6 +67,7 @@ export const metadata: Metadata = {
 };
 
 import SmoothScroll from "@/components/SmoothScroll";
+import RouteTracker from "@/components/RouteTracker";
 
 export default function RootLayout({
   children,
@@ -100,7 +101,10 @@ export default function RootLayout({
             }),
           }}
         />
-        <SmoothScroll>{children}</SmoothScroll>
+        <SmoothScroll>
+          <RouteTracker />
+          {children}
+        </SmoothScroll>
       </body>
     </html>
   );
