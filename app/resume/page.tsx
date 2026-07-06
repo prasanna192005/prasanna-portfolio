@@ -621,7 +621,7 @@ export default function ResumePage() {
               </h2>
               <ul className="space-y-0.5">
                 <li className="jakes-bullet text-[12.5px] text-[#222222]">
-                  <span className="font-bold">Winner (First Place)</span>, Barclays Hack-O-Hire Hackathon 2025 (Developed ObservoAI, an AI-powered automated watchdog platform).
+                  <span className="font-bold">Winner</span>, Barclays Hack-O-Hire Hackathon 2025 (Developed ObservoAI, an AI-powered automated watchdog platform).
                 </li>
               </ul>
             </motion.section>
